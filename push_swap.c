@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 19:49:30 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/23 21:16:37 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_n(char *str)
 {
 	int	n;
-
+ 
 	ft_printf("str = %s\n", str);
 
 	n = 0;
@@ -34,7 +34,7 @@ int	check_n(char *str)
 int	*protection(int *args_int, int argc, char **argv)
 {
 	int n;
-	
+
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	n = 0;
