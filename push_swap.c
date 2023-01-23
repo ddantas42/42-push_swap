@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 21:16:37 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:11:00 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_n(char *str)
 {
 	int	n;
  
-	ft_printf("str = %s\n", str);
+	ft_printf("str = %s ", str);
 
 	n = 0;
 	if (str)
@@ -31,7 +31,7 @@ int	check_n(char *str)
 	return (0);
 }
 
-int	*protection(int *args_int, int argc, char **argv)
+int	*protection(int *stack_a, int *stack_b, int argc, char **argv)
 {
 	int n;
 
@@ -41,28 +41,43 @@ int	*protection(int *args_int, int argc, char **argv)
 	while (argv[n + 1])
 	{
 		check_n(argv[n + 1]);
-		args_int[n] = ft_atoi(argv[n + 1]);
-		ft_printf("args_int[%d] = %d\n", n, args_int[n]);
+		stack_a[n] = ft_atoi(argv[n + 1]);
+		stack_b[n] = stack_a[n];
+		ft_printf("args_int[%d] = %d\n", n, stack_a[n]);
 		n++;
 	}
-	return (args_int);
+	return (stack_a);
 }
 
 int main(int argc, char **argv)
 {
-	int	*args_int;
+	int	*stack_a;
+	int	*stack_b;
 	int	n;
-	
-	args_int = (int *)malloc(argc * sizeof(int));
-	args_int = protection(args_int, argc, argv);
-	ft_printf("arguments: \n");
+	int	l;
 
+	stack_a = (int *)malloc(argc * sizeof(int));
+	stack_b = (int *)malloc(argc * sizeof(int));
+	protection(stack_a, stack_b, argc, argv);
+
+	// Print Stack elements
+	ft_printf("Stack: A\n");
 	n = 0;
-	while (args_int[n])
+	while (stack_a[n])
+		ft_printf("%d\n", stack_a[n++]);
+	ft_printf("_\n");
+	// End printing elements
+	n = 0;
+	l = 0;
+	while (stack_a[n])
 	{
-		ft_printf("%d ", args_int[n]);
-		n++;
+		while (stack_b[j])
+		{
+			if (n == j)
+				break;
+			j++;
+		}
+	n++;
 	}
-	ft_printf("\n", args_int[n]);
 	return (0);
 }

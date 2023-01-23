@@ -1,23 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 22:03:53 by ddantas-         ###   ########.fr       */
+/*   Created: 2023/01/23 21:33:29 by ddantas-          #+#    #+#             */
+/*   Updated: 2023/01/23 21:34:48 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
-
-/*		main.c		*/
-int	check_n(char *str);
-int	*protection(int *stack_a, int *stack_b, int argc, char **argv);
-
-#endif
