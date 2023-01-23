@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 19:13:38 by ddantas-         ###   ########.fr       */
+/*   Created: 2022/03/11 16:30:49 by ddantas-          #+#    #+#             */
+/*   Updated: 2022/03/11 16:30:52 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
-
-#endif
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{	
+	if (lst && new)
+	{
+		new->next = (*lst);
+		(*lst) = new;
+	}
+}

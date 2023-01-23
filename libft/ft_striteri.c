@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 19:13:38 by ddantas-         ###   ########.fr       */
+/*   Created: 2022/03/11 14:57:09 by ddantas-          #+#    #+#             */
+/*   Updated: 2022/03/11 14:58:31 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	size_t		n;
 
-#endif
+	if (s && f)
+	{
+		n = 0;
+		while (n < ft_strlen(s))
+		{
+			f(n, &s[n]);
+			n++;
+		}
+		s[n] = 0;
+	}
+}

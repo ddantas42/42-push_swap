@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 19:13:38 by ddantas-         ###   ########.fr       */
+/*   Created: 2022/03/11 16:42:50 by ddantas-          #+#    #+#             */
+/*   Updated: 2022/03/11 16:42:54 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
+int	ft_lstsize(t_list *lst)
+{
+	int	n;
 
-#endif
+	n = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		n++;
+		lst = lst->next;
+	}
+	return (n);
+}
