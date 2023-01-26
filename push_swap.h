@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/26 19:27:28 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/26 21:30:13 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "./libft/libft.h"
 
 /*		protection.c		*/
-void	free_stuff(int *stack_a, int *stack_b);
+void	free_stuff(int *stack_a, int *stack_b, int error);
 int		check_n(char *str, int *stack_a, int *stack_b);
 int		*protection(int *stack_a, int *stack_b, int argc, char **argv);
 void	duplicate_check(int *stack_a, int *stack_b, int n);
