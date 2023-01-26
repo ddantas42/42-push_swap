@@ -6,16 +6,16 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 16:13:23 by ddantas-          #+#    #+#              #
-#    Updated: 2023/01/23 21:59:04 by ddantas-         ###   ########.fr        #
+#    Updated: 2023/01/26 19:37:18 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra #-Werror
+CFLAGS = -Wall -Wextra -g #-Werror
 NAME = push_swap
 RM = rm
 
-FILESC = push_swap.c 
+FILESC = push_swap.c protection.c
 
 OBJS = $(FILESC:.c=.o)
 
@@ -39,8 +39,7 @@ $(LIBFT):
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) -f $(NAME).o
-	$(RM) -f ./obj/*.o
+	$(RM) -f $(OBJS)
 	$(MAKE) -C ft_printf fclean
 	$(MAKE) -C libft fclean
 	
