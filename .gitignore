@@ -1,0 +1,5 @@
+*.[oa]
+*~
+*.json
+.vscode/
+push_swap

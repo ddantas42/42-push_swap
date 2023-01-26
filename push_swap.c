@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/23 22:11:00 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:44:20 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,16 @@ int main(int argc, char **argv)
 	l = 0;
 	while (stack_a[n])
 	{
-		while (stack_b[j])
+		while (stack_b[l])
 		{
-			if (n == j)
-				break;
-			j++;
+			if (n == l)
+				{
+					l++;
+					break;
+				}
+			if (stack_a[n] == stack_b[l])
+				exit(EXIT_FAILURE);		
+			l++;
 		}
 	n++;
 	}
