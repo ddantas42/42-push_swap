@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/26 18:44:20 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:53:41 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int main(int argc, char **argv)
 	l = 0;
 	while (stack_a[n])
 	{
+		l = 0;
 		while (stack_b[l])
 		{
 			if (n == l)
@@ -79,7 +80,10 @@ int main(int argc, char **argv)
 					break;
 				}
 			if (stack_a[n] == stack_b[l])
+			{
+				ft_printf("Duplicated number detected!!\n");
 				exit(EXIT_FAILURE);		
+			}
 			l++;
 		}
 	n++;
