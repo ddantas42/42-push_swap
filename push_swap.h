@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 11:58:27 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:26:15 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@
 
 typedef struct a_list
 {
-	void			*content;
+	int				data;
 	struct a_list	*next;
-}					t_a_list;
+}					t_alist;
 
 typedef struct b_list
 {
-	void			*content;
+	int				data;
 	struct b_list	*next;
-}					t_b_list;
+}					t_blist;
+
+/*		list_functions.c	*/
+int		ft_lstsize_2(t_alist *lst);
 
 /*		protection.c		*/
 void	free_stuff(int *stack_a, int *stack_b, int error);
@@ -38,8 +41,6 @@ int		*protection(int *stack_a, int argc, char **argv);
 /*		operations.c		*/
 int		sa(int *stack_a, int ss);
 int		sb(int *stack_b, int ss);
-int		ss(int stack_a, int *stack_b);
-
-
+int		ss(int *stack_a, int *stack_b);
 
 #endif

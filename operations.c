@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 09:40:42 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 11:04:32 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:26:35 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ int sb(int *stack_b, int ss)
 	return (0);
 }
 
-int ss(int stack_a, int *stack_b)
+int ss(int *stack_a, int *stack_b)
 {
 	sa(stack_a, 1);
 	sb(stack_b, 1);
 	ft_printf("ss\n");
+	return (0);
 }

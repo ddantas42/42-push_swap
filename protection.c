@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 12:00:15 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 12:29:25 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,13 @@ int	*protection(int *stack_a, int argc, char **argv)
 	int	*stack_b;
 
 	stack_b = (int *)malloc((argc - 1) * sizeof(int));
-	if (!stack_b)
-		free_stuff(stack_a, stack_b, 0);
-	if (argc < 2)
+	if (!stack_b || argc < 2)
 		free_stuff(stack_a, stack_b, 1);
 	n = 0;
 	while (argv[n + 1])
 	{
 		stack_a[n] = check_n(argv[n + 1], stack_a, stack_b);
-		if (stack_a[n] > 2147483647 || stack_b[n] < -2147483648)
+		if (stack_a[n] > 2147483646 || stack_b[n] < -2147483647)
 			free_stuff(stack_a, stack_b, 1);
 		if (argv[n + 1][0] != '0' && stack_a[n] == 0)
 			free_stuff(stack_a, stack_b, 1);
