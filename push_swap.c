@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 16:24:35 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:26:28 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_alist		*lst;
 	//t_b_list	list_b;
 	
+	// List experiment
 	lst = (t_alist *)malloc(sizeof(t_alist));
 	if (!lst)
 		free(lst);
@@ -25,18 +26,15 @@ int	main(int argc, char **argv)
 	lst->next = NULL;
 	ft_printf("list size = %d\n", ft_lstsize_2(lst));
 	ft_printf("lst.data = %d | lst.next = %p\n", lst->data, lst->next);
+	// List experiment End
 	
 	stack_a = (int *)malloc((argc - 1) * sizeof(int));
 	if (!stack_a)
 		free_stuff(stack_a, 0, 1);	
-	protection(stack_a, argc, argv);
+	protection(lst, stack_a, argc, argv);
 	free(stack_a);
 
-	// List experiment
-	// List experiment End
-
 	ft_printf("Ready to be sorted!\n");
-	// AFTER PROTECTION FREE STACK_A free(stack_a);
 
 	/* 
 	// print Stack 

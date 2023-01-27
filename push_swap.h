@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 16:18:37 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:30:34 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int		ft_lstsize_2(t_alist *lst);
 //t_alist	*ft_add_lst(t_alist *lst, int n, int atoi);
 
 /*		protection.c		*/
-void	free_stuff(int *stack_a, int *stack_b, int error);
-int		already_sorted(int *stack_a, int argc, int n);
-int		check_n(char *str, int *stack_a, int *stack_b);
-void	duplicate_check(int *stack_a, int *stack_b, int n);
-int		*protection(int *stack_a, int argc, char **argv);
+void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error);
+int		already_sorted(t_alist *lst, int *stack_a, int argc, int n);
+int		check_n(t_alist *lst, char *str, int *stack_a, int *stack_b);
+void	duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int n);
+int		*protection(t_alist *lst, int *stack_a, int argc, char **argv);
 
 /*		operations.c		*/
 int		sa(int *stack_a, int ss);
