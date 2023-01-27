@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/26 21:30:13 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 11:58:27 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,30 @@
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 
+typedef struct a_list
+{
+	void			*content;
+	struct a_list	*next;
+}					t_a_list;
+
+typedef struct b_list
+{
+	void			*content;
+	struct b_list	*next;
+}					t_b_list;
+
 /*		protection.c		*/
 void	free_stuff(int *stack_a, int *stack_b, int error);
+int		already_sorted(int *stack_a, int *stack_b, int argc, int n);
 int		check_n(char *str, int *stack_a, int *stack_b);
-int		*protection(int *stack_a, int *stack_b, int argc, char **argv);
 void	duplicate_check(int *stack_a, int *stack_b, int n);
+int		*protection(int *stack_a, int argc, char **argv);
+
+/*		operations.c		*/
+int		sa(int *stack_a, int ss);
+int		sb(int *stack_b, int ss);
+int		ss(int stack_a, int *stack_b);
+
+
 
 #endif
