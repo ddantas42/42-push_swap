@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 16:30:34 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 19:18:18 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ typedef struct b_list
 }					t_blist;
 
 /*		list_functions.c	*/
+t_alist *create_list(t_alist *lst, int *stack, int argc);
 void	ft_freelist(t_alist* head);
 int		ft_lstsize_2(t_alist *lst);
-//t_alist	*ft_add_lst(t_alist *lst, int n, int atoi);
+t_alist	*ft_add_lst(t_alist *lst, int atoi, int p);
 
 /*		protection.c		*/
 void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error);
 int		already_sorted(t_alist *lst, int *stack_a, int argc, int n);
 int		check_n(t_alist *lst, char *str, int *stack_a, int *stack_b);
-void	duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int n);
+int		duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int n);
 int		*protection(t_alist *lst, int *stack_a, int argc, char **argv);
 
 /*		operations.c		*/

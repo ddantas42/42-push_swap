@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 16:35:48 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 19:19:35 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ int	main(int argc, char **argv)
 	t_alist		*lst;
 	//t_b_list	list_b;
 	
-	// List experiment
 	lst = (t_alist *)malloc(sizeof(t_alist));
 	if (!lst)
-		free(lst);
-	ft_printf("list size = %d\n", ft_lstsize_2(lst));
-	ft_printf("lst.data = %d | lst.next = %p\n", lst->data, lst->next);
-	// List experiment End
-	
+		ft_freelist(lst);
 	stack_a = (int *)malloc((argc - 1) * sizeof(int));
 	if (!stack_a)
 		free_stuff(lst, stack_a, 0, 1);	
 	protection(lst, stack_a, argc, argv);
+	lst = create_list(lst, stack_a, argc);
 	free(stack_a);
+	/*t_alist *temp = lst;
+	while (temp)
+	{
+		ft_printf("lst.data = %d\n",temp->data);
+		temp = temp->next;
+	}*/
+	ft_freelist(lst);
 
 	ft_printf("Ready to be sorted!\n");
-	free(lst);
 	return (0);
 }
