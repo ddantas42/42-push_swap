@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 12:29:25 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:24:41 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	free_stuff(int *stack_a, int *stack_b, int error)
 	exit(EXIT_FAILURE);
 }
 
-int	already_sorted(int *stack_a, int *stack_b, int argc, int n)
+int	already_sorted(int *stack_a, int argc, int n)
 {
+	n = 0;
 	while (n < argc - 2)
 	{
 		if (stack_a[n] < stack_a[n + 1])
@@ -32,12 +33,9 @@ int	already_sorted(int *stack_a, int *stack_b, int argc, int n)
 			continue ;
 		}
 		else
-		{
-			free(stack_b);
 			return (0);
-		}
 	}
-	free_stuff(stack_a, stack_b, 0);
+	free_stuff(stack_a, 0, 1);
 	return (1);
 }
 
@@ -67,6 +65,7 @@ void	duplicate_check(int *stack_a, int *stack_b, int n)
 	int	l;
 
 	l = 0;
+	n = 0;
 	while (stack_a[n])
 	{
 		l = 0;
@@ -82,6 +81,7 @@ void	duplicate_check(int *stack_a, int *stack_b, int n)
 		}
 	n++;
 	}
+	free(stack_b);
 }
 
 int	*protection(int *stack_a, int argc, char **argv)
@@ -96,15 +96,15 @@ int	*protection(int *stack_a, int argc, char **argv)
 	while (argv[n + 1])
 	{
 		stack_a[n] = check_n(argv[n + 1], stack_a, stack_b);
-		if (stack_a[n] > 2147483646 || stack_b[n] < -2147483647)
-			free_stuff(stack_a, stack_b, 1);
+		//if (stack_a[n] > 2147483646 || stack_b[n] < -2147483647)
+		//	free_stuff(stack_a, stack_b, 1);
 		if (argv[n + 1][0] != '0' && stack_a[n] == 0)
 			free_stuff(stack_a, stack_b, 1);
+		//ft_add_lst(lst, n, stack_a[n]);
 		stack_b[n] = stack_a[n];
 		n++;
 	}
-	n = 0;
 	duplicate_check(stack_a, stack_b, n);
-	already_sorted(stack_a, stack_b, argc, n);
+	already_sorted(stack_a, argc, n);
 	return (0);
 }
