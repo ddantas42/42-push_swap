@@ -65,12 +65,10 @@ t_alist	*pa(t_alist *alst, t_blist *blst)
 	return (alst);
 }
 */
-void	pb(t_blist **blst, t_alist **alst, int data, int argc)
+void	pb(t_blist **blst, t_alist **alst, int data)
 {
 	t_blist	*new;
 	
-	ft_printf("argc = %d\n", argc);
-	ft_printf("b list size = %d\n", ft_lstsize_2(0, (*blst)));
 	new = (t_blist *)malloc(sizeof(t_blist));
 	if (!new)
 	{

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 15:12:11 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:54:54 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ t_alist	*sa(t_alist	*alst, int ss);
 t_blist	*sb(t_blist *blst, int ss);
 t_alist	*ss(t_alist *alst, t_blist *blst);
 //t_alist	*pa(t_alist *alst, t_blist *blst);
-void	pb(t_blist **blst, t_alist **alst, int data, int argc);
-//t_blist	*pb(t_alist *alst, t_blist *blst);
+void	pb(t_blist **blst, t_alist **alst, int data);
 
 
 #endif
