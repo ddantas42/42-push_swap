@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 17:40:21 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:39:45 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ void	print_list_b(t_blist *lst)
 	ft_printf("_\n\n");
 }
 
+/*void	bye_0_blst(t_blist **blst, t_alist **alst)
+{
+	t_blist	*new;
+
+	new = (t_blist *)malloc(sizeof(t_blist));
+	if (!new)
+	{
+		free(new);
+		ft_freelist((*alst), (*blst), 0);
+	}
+	new->data = 1;
+	new->next = (*blst);
+	(*blst) = new;
+}*/
+
 int	main(int argc, char **argv)
 {
 	int			*stack_a;
@@ -52,7 +67,6 @@ int	main(int argc, char **argv)
 		free_stuff(alst, stack_a, 0, 1);	
 	protection(alst, stack_a, argc, argv);
 	pop_top_a(&alst);
-	pop_top_b(&blst);
 	
 	blst = (t_blist *)malloc(sizeof(t_blist));
 	if (!blst)
@@ -61,16 +75,19 @@ int	main(int argc, char **argv)
 	print_list_a(alst);
 	int	c;
 	scanf("%d", &c);
+	//bye_0_blst(&blst, &alst);
 	while (c)
 	{
-		if ((argc) != ft_lstsize_2(alst,0) && c == 1)
+		if (argc - 1 != ft_lstsize_2(alst,0) && c == 1)
 			pa(&blst, &alst, blst->data);
-		if ((argc) != ft_lstsize_2(0,blst) && c == 2)
+		if (argc - 1 != ft_lstsize_2(0,blst) && c == 2)
 			pb(&blst, &alst, alst->data);
 		if (c == 3)
 			sa(alst, 0);
 		if (c == 4)
 			sb(blst, 0);
+		if (c == 5)
+			pop_top_b(&blst);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);

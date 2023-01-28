@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 17:37:52 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:34:21 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,5 @@ int	ft_lstsize_2(t_alist *alst, t_blist *blst)
 			blst = blst->next;
 		}
 	}
-	ft_printf("n = %d\n", n);
 	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 07:40:04 by  ddantas-         #+#    #+#             */
-/*   Updated: 2023/01/28 17:34:40 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:35:37 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	pa(t_blist **blst, t_alist **alst, int data)
 	if (!new)
 	{
 		free(new);
-		ft_freelist((*alst), (*blst), 2);
+		ft_freelist((*alst), (*blst), 0);
 	}
 	new->data = data;
 	new->next = (*alst);
@@ -70,12 +70,21 @@ void	pa(t_blist **blst, t_alist **alst, int data)
 void	pb(t_blist **blst, t_alist **alst, int data)
 {
 	t_blist	*new;
+	//static int first = 0;
 
+	/*if (first == 0)
+	{
+		first++;
+		
+		(*blst)->data = data;
+		pop_top_a(alst);
+		return ;
+	}*/
 	new = (t_blist *)malloc(sizeof(t_blist));
 	if (!new)
 	{
 		free(new);
-		ft_freelist((*alst), (*blst), 2);
+		ft_freelist((*alst), (*blst), 0);
 	}
 	new->data = data;
 	new->next = (*blst);
