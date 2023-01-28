@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 18:21:35 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 09:18:30 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	already_sorted(t_alist *lst, int *stack_a, int argc, int n)
 
 int	check_n(t_alist *lst, char *str, int *stack_a, int *stack_b)
 {
-	int	n;
+	int				n;
 
 	n = 0;
 	if (str)
@@ -61,15 +61,16 @@ int	check_n(t_alist *lst, char *str, int *stack_a, int *stack_b)
 		}
 	}
 	n = ft_atoi(str);
-	if (n > 2147483647 || n < -2147483648)
+	if (n > 2147483647 || n < -2147483647)
 		free_stuff(lst, stack_a, stack_b, 1);
+	ft_add_lst(lst, n);
 	return (n);
 }
 
 int	duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int argc)
 {
 	int	l;
-	int n;
+	int	n;
 
 	l = 0;
 	n = 0;

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 19:18:18 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 09:27:31 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ typedef struct b_list
 }					t_blist;
 
 /*		list_functions.c	*/
-t_alist *create_list(t_alist *lst, int *stack, int argc);
-void	ft_freelist(t_alist* head);
+t_alist	*pop_top(t_alist* lst);
+void	ft_freelist(t_alist* lst);
 int		ft_lstsize_2(t_alist *lst);
-t_alist	*ft_add_lst(t_alist *lst, int atoi, int p);
+t_alist	*ft_add_lst(t_alist *lst, int atoi);
 
 /*		protection.c		*/
 void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error);

@@ -6,33 +6,23 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 19:24:34 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 09:20:16 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_alist *create_list(t_alist *lst, int *stack, int argc)
+t_alist	*pop_top(t_alist* lst)
 {
-	int		n;
-	t_alist	*temp;
-
-	temp = lst;
-	n = 0;
-	while (n < argc - 1)
-	{
-		if (n == 0)
-		{
-			ft_add_lst(lst, stack[n++], 1);
-		}
-		else	
-		{
-			ft_printf("stack[%d] = %d \n", n, stack[n]);
-			ft_add_lst(temp, stack[n++], 0);
-		}		
-		temp = temp->next;
-	}
-	return (lst);
+  
+    if (lst == NULL)
+        return NULL;
+    t_alist* temp = lst;
+    lst = lst->next;
+  
+    free(temp);
+  
+    return (lst);
 }
 
 void ft_freelist(t_alist* lst)
@@ -43,23 +33,18 @@ void ft_freelist(t_alist* lst)
 	{
 		temp = lst;
 		lst = lst->next;
-		printf("free temp = %d\n", temp);
+		printf("free temp = %p\n", temp);
 		free(temp);
 	}
+	lst = NULL;
 	exit(EXIT_FAILURE);
 }
 
-t_alist	*ft_add_lst(t_alist *lst, int atoi, int p)
+t_alist	*ft_add_lst(t_alist *lst, int atoi)
 {
 	t_alist *new;
 	t_alist	*temp;
 
-	if (p)
-	{
-		lst->data = atoi;
-		lst->next = NULL;
-		return (lst);
-	}
 	temp = lst;
 	while (temp != NULL && temp->next != NULL)
 		temp = temp->next;	
