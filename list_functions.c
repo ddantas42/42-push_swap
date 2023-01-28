@@ -6,74 +6,125 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 09:20:16 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:14:03 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_alist	*pop_top(t_alist* lst)
+void	pop_top_a(t_alist **alst)
 {
-  
-    if (lst == NULL)
-        return NULL;
-    t_alist* temp = lst;
-    lst = lst->next;
-  
-    free(temp);
-  
-    return (lst);
-}
+    t_alist	*temp;
 
-void ft_freelist(t_alist* lst)
-{
-	t_alist	*temp;
-
-	while (lst != NULL)
+	if (alst == NULL)
+		exit(1);
+	else
 	{
-		temp = lst;
-		lst = lst->next;
-		printf("free temp = %p\n", temp);
+		temp = (*alst);
+    	(*alst) = (*alst)->next;
 		free(temp);
 	}
-	lst = NULL;
+}
+
+void	ft_freelist(t_alist *alst, t_blist *blst, int malloc)
+{
+	t_alist	*temp_a;
+	t_blist	*temp_b;
+
+	if (malloc == 1)
+	{
+		free(alst);
+		exit(EXIT_FAILURE);
+	}
+	while (alst != NULL)
+	{
+		temp_a = alst;
+		alst = alst->next;
+		free(temp_a);
+	}
+	if (malloc == 2)
+	{
+		free(blst);
+		exit(EXIT_FAILURE);
+	}
+	while (blst != NULL)
+	{
+		temp_b = blst;
+		blst = blst->next;
+		free(temp_b);
+	}
+	alst = NULL;
+	blst = NULL;
 	exit(EXIT_FAILURE);
 }
 
-t_alist	*ft_add_lst(t_alist *lst, int atoi)
+t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi)
 {
 	t_alist *new;
 	t_alist	*temp;
 
-	temp = lst;
+	temp = alst;
 	while (temp != NULL && temp->next != NULL)
 		temp = temp->next;	
 	new = (t_alist *)malloc(sizeof(new));
 	if (!new)
 	{
 		free(new);	
-		ft_freelist(lst);
+		ft_freelist(alst, blst, 0);
 	}
 	new->data = atoi;
 	new->next = NULL;
 	if (temp != NULL)
 		temp->next = new;
 	else
-		lst = new;
-	return (lst);
+		alst = new;
+	return (alst);
 }
 
-int	ft_lstsize_2(t_alist *lst)
+t_blist	*ft_add_blst(t_alist *alst, t_blist *blst, int atoi)
+{
+	t_blist *new;
+	t_blist	*temp;
+
+	temp = blst;
+	while (temp != NULL && temp->next != NULL)
+		temp = temp->next;	
+	new = (t_blist *)malloc(sizeof(new));
+	if (!new)
+	{
+		free(new);	
+		ft_freelist(alst, blst, 0);
+	}
+	new->data = atoi;
+	new->next = NULL;
+	if (temp != NULL)
+		temp->next = new;
+	else
+		blst = new;
+	return (blst);
+}
+
+int	ft_lstsize_2(t_alist *alst, t_blist *blst)
 {
 	int	n;
 
 	n = 0;
-	if (!lst)
-		return (0);
-	while (lst)
+	if (alst)
 	{
-		n++;
-		lst = lst->next;
+		while (alst)
+		{
+			n++;
+			alst = alst->next;
+		}
 	}
+	if (blst)
+	{
+		while (blst)
+		{
+			n++;
+			blst = blst->next;
+		}
+	}
+	ft_printf("n = %d\n", n);
 	return (n);
 }

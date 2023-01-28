@@ -6,35 +6,75 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 09:21:11 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:44:11 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void print_list_a(t_alist *lst)
 {
-	int			*stack_a;
-	t_alist		*lst;
-	//t_b_list	list_b;
-	
-	lst = (t_alist *)malloc(sizeof(t_alist));
-	if (!lst)
-		ft_freelist(lst);
-	stack_a = (int *)malloc((argc - 1) * sizeof(int));
-	if (!stack_a)
-		free_stuff(lst, stack_a, 0, 1);	
-	protection(lst, stack_a, argc, argv);
-	free(stack_a);
-	lst = pop_top(lst);
 	t_alist *temp = lst;
+	ft_printf("A\n");
 	while (temp)
 	{
 		ft_printf("lst.data = %d\n",temp->data);
 		temp = temp->next;
 	}
-	ft_freelist(lst);
+	ft_printf("_\n\n");
+}
 
+
+void print_list_b(t_blist *lst)
+{
+	t_blist *temp = lst;
+	ft_printf("B\n");
+	while (temp)
+	{
+		ft_printf("lst.data = %d\n",temp->data);
+		temp = temp->next;
+		
+	}
+	ft_printf("_\n\n");
+}
+
+int	main(int argc, char **argv)
+{
+	int			*stack_a;
+	t_alist		*alst;
+	t_blist		*blst;
+	
+	alst = (t_alist *)malloc(sizeof(t_alist));
+	if (!alst)
+		ft_freelist(alst, 0, 1);
+	stack_a = (int *)malloc((argc - 1) * sizeof(int));
+	if (!stack_a)
+		free_stuff(alst, stack_a, 0, 1);	
+	protection(alst, stack_a, argc, argv);
+	pop_top_a(&alst);
+	
+	blst = (t_blist *)malloc(sizeof(t_blist));
+	if (!blst)
+		ft_freelist(alst, blst, 2);
+	
+	print_list_a(alst);
+	int	c;
+	scanf("%d", &c);
+	while (c)
+	{
+		if ((argc) != ft_lstsize_2(0,blst) && c == 1)
+			pb(&blst, &alst, alst->data, argc);
+		if (c == 2)
+			sa(alst, 0);
+		if (c == 3)
+			sb(blst, 0);
+		print_list_a(alst);
+		print_list_b(blst);
+		scanf("%d", &c);
+	}
+
+	
+	ft_freelist(alst, blst, 0);
 	ft_printf("Ready to be sorted!\n");
 	return (0);
 }

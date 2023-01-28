@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 09:18:30 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 11:26:45 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error)
 	if (stack_a)
 		free(stack_a);
 	if (lst)
-		ft_freelist(lst);
+		ft_freelist(lst, 0, 0);
 	exit(EXIT_FAILURE);
 }
 
@@ -36,7 +36,11 @@ int	already_sorted(t_alist *lst, int *stack_a, int argc, int n)
 			continue ;
 		}
 		else
+		{
+			free(stack_a);
 			return (0);
+		}
+		
 	}
 	free_stuff(lst, stack_a, 0, 1);
 	return (1);
@@ -63,7 +67,7 @@ int	check_n(t_alist *lst, char *str, int *stack_a, int *stack_b)
 	n = ft_atoi(str);
 	if (n > 2147483647 || n < -2147483647)
 		free_stuff(lst, stack_a, stack_b, 1);
-	ft_add_lst(lst, n);
+	ft_add_alst(lst, 0, n);
 	return (n);
 }
 

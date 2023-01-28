@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 09:27:31 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:12:11 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
+
+# define A 65
+# define B 66
+
 
 typedef struct a_list
 {
@@ -29,10 +33,11 @@ typedef struct b_list
 }					t_blist;
 
 /*		list_functions.c	*/
-t_alist	*pop_top(t_alist* lst);
-void	ft_freelist(t_alist* lst);
-int		ft_lstsize_2(t_alist *lst);
-t_alist	*ft_add_lst(t_alist *lst, int atoi);
+void	pop_top_a(t_alist **alst);
+void	ft_freelist(t_alist *alst, t_blist *blst, int malloc);
+int		ft_lstsize_2(t_alist *alst, t_blist *blst);
+t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi);
+t_blist	*ft_add_blst(t_alist *alst, t_blist *blst, int atoi);
 
 /*		protection.c		*/
 void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error);
@@ -42,8 +47,12 @@ int		duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int n);
 int		*protection(t_alist *lst, int *stack_a, int argc, char **argv);
 
 /*		operations.c		*/
-int		sa(int *stack_a, int ss);
-int		sb(int *stack_b, int ss);
-int		ss(int *stack_a, int *stack_b);
+t_alist	*sa(t_alist	*alst, int ss);
+t_blist	*sb(t_blist *blst, int ss);
+t_alist	*ss(t_alist *alst, t_blist *blst);
+//t_alist	*pa(t_alist *alst, t_blist *blst);
+void	pb(t_blist **blst, t_alist **alst, int data, int argc);
+//t_blist	*pb(t_alist *alst, t_blist *blst);
+
 
 #endif

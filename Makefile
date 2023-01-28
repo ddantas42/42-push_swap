@@ -6,12 +6,12 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 16:13:23 by ddantas-          #+#    #+#              #
-#    Updated: 2023/01/27 13:25:00 by ddantas-         ###   ########.fr        #
+#    Updated: 2023/01/28 14:05:06 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -g #-Werror
+CFLAGS = -g -Wall -Wextra -Werror
 NAME = push_swap
 RM = rm
 
