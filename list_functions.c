@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 15:14:03 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:37:52 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,28 @@
 
 void	pop_top_a(t_alist **alst)
 {
-    t_alist	*temp;
+	t_alist	*temp;
 
 	if (alst == NULL)
 		exit(1);
 	else
 	{
 		temp = (*alst);
-    	(*alst) = (*alst)->next;
+		(*alst) = (*alst)->next;
+		free(temp);
+	}
+}
+
+void	pop_top_b(t_blist **blst)
+{
+	t_blist	*temp;
+
+	if (blst == NULL)
+		exit(1);
+	else
+	{
+		temp = (*blst);
+		(*blst) = (*blst)->next;
 		free(temp);
 	}
 }
@@ -53,23 +67,21 @@ void	ft_freelist(t_alist *alst, t_blist *blst, int malloc)
 		blst = blst->next;
 		free(temp_b);
 	}
-	alst = NULL;
-	blst = NULL;
 	exit(EXIT_FAILURE);
 }
 
 t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi)
 {
-	t_alist *new;
+	t_alist	*new;
 	t_alist	*temp;
 
 	temp = alst;
 	while (temp != NULL && temp->next != NULL)
-		temp = temp->next;	
+		temp = temp->next;
 	new = (t_alist *)malloc(sizeof(new));
 	if (!new)
 	{
-		free(new);	
+		free(new);
 		ft_freelist(alst, blst, 0);
 	}
 	new->data = atoi;
@@ -79,29 +91,6 @@ t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi)
 	else
 		alst = new;
 	return (alst);
-}
-
-t_blist	*ft_add_blst(t_alist *alst, t_blist *blst, int atoi)
-{
-	t_blist *new;
-	t_blist	*temp;
-
-	temp = blst;
-	while (temp != NULL && temp->next != NULL)
-		temp = temp->next;	
-	new = (t_blist *)malloc(sizeof(new));
-	if (!new)
-	{
-		free(new);	
-		ft_freelist(alst, blst, 0);
-	}
-	new->data = atoi;
-	new->next = NULL;
-	if (temp != NULL)
-		temp->next = new;
-	else
-		blst = new;
-	return (blst);
 }
 
 int	ft_lstsize_2(t_alist *alst, t_blist *blst)

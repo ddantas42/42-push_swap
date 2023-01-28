@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 11:26:45 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:40:03 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	already_sorted(t_alist *lst, int *stack_a, int argc, int n)
 			free(stack_a);
 			return (0);
 		}
-		
 	}
 	free_stuff(lst, stack_a, 0, 1);
 	return (1);

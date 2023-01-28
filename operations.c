@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/2 7 09:40:42 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/27 16:49:36 by ddantas-         ###   ########.fr       */
+/*   Created: 2023/01/02 07:40:04 by  ddantas-         #+#    #+#             */
+/*   Updated: 2023/01/28 17:34:40 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
-
+#include "push_swap.h"
 
 t_alist	*sa(t_alist	*alst, int ss)
 {
 	int		n_temp;
-	
+
 	if (ss == 0)
 		ft_printf("sa\n");
 	if (alst != NULL && alst->next != NULL)
@@ -50,25 +49,28 @@ t_alist	*ss(t_alist *alst, t_blist *blst)
 	ft_printf("ss\n");
 	return (0);
 }
-/*
-t_alist	*pa(t_alist *alst, t_blist *blst)
+
+void	pa(t_blist **blst, t_alist **alst, int data)
 {
-	t_blist	*temp;
-	
-	if (blst == NULL)
-		return (alst);
-	alst = ft_add_alst(alst, blst, alst->data);
-	temp = blst;
-    blst = blst->next;
-	free(temp);
+	t_alist	*new;
+
+	new = (t_alist *)malloc(sizeof(t_alist));
+	if (!new)
+	{
+		free(new);
+		ft_freelist((*alst), (*blst), 2);
+	}
+	new->data = data;
+	new->next = (*alst);
+	(*alst) = new;
+	pop_top_b(blst);
 	ft_printf("pa\n");
-	return (alst);
 }
-*/
+
 void	pb(t_blist **blst, t_alist **alst, int data)
 {
 	t_blist	*new;
-	
+
 	new = (t_blist *)malloc(sizeof(t_blist));
 	if (!new)
 	{
