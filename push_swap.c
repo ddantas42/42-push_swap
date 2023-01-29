@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 18:39:45 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:24:12 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		free_stuff(alst, stack_a, 0, 1);	
 	protection(alst, stack_a, argc, argv);
+	ft_add_alst(alst, 0, 0);
+	ft_add_blst(alst, blst, 0);
 	pop_top_a(&alst);
 	
 	blst = (t_blist *)malloc(sizeof(t_blist));
@@ -78,16 +80,11 @@ int	main(int argc, char **argv)
 	//bye_0_blst(&blst, &alst);
 	while (c)
 	{
+		ft_printf("argc = %d\n", argc);
 		if (argc - 1 != ft_lstsize_2(alst,0) && c == 1)
-			pa(&blst, &alst, blst->data);
-		if (argc - 1 != ft_lstsize_2(0,blst) && c == 2)
-			pb(&blst, &alst, alst->data);
-		if (c == 3)
-			sa(alst, 0);
-		if (c == 4)
-			sb(blst, 0);
-		if (c == 5)
-			pop_top_b(&blst);
+			pa(&blst, &alst, blst->data, argc);
+		if (c == 2)
+			pb(&blst, &alst, alst->data, argc);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);

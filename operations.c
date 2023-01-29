@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 07:40:04 by  ddantas-         #+#    #+#             */
-/*   Updated: 2023/01/28 18:35:37 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:30:44 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@ t_alist	*ss(t_alist *alst, t_blist *blst)
 	return (0);
 }
 
-void	pa(t_blist **blst, t_alist **alst, int data)
+// de B para A
+void	pa(t_blist **blst, t_alist **alst, int data, int argc)
 {
 	t_alist	*new;
-
-	new = (t_alist *)malloc(sizeof(t_alist));
+	
+	if (ft_lstsize_2((*alst), 0) == argc)
+		return ;
+	new = (t_alist *)malloc(sizeof(new));
 	if (!new)
 	{
 		free(new);
@@ -67,20 +70,13 @@ void	pa(t_blist **blst, t_alist **alst, int data)
 	ft_printf("pa\n");
 }
 
-void	pb(t_blist **blst, t_alist **alst, int data)
+// de A para B
+void	pb(t_blist **blst, t_alist **alst, int data, int argc)
 {
 	t_blist	*new;
-	//static int first = 0;
-
-	/*if (first == 0)
-	{
-		first++;
-		
-		(*blst)->data = data;
-		pop_top_a(alst);
+	if (ft_lstsize_2(0, (*blst)) == argc)
 		return ;
-	}*/
-	new = (t_blist *)malloc(sizeof(t_blist));
+	new = (t_blist *)malloc(sizeof(new));
 	if (!new)
 	{
 		free(new);

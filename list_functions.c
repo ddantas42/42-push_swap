@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/28 18:34:21 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:31:18 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,17 +98,17 @@ int	ft_lstsize_2(t_alist *alst, t_blist *blst)
 	int	n;
 
 	n = 0;
-	if (alst)
+	if (alst != NULL)
 	{
-		while (alst)
+		while (alst != NULL)
 		{
 			n++;
 			alst = alst->next;
 		}
 	}
-	if (blst)
+	if (blst != NULL)
 	{
-		while (blst)
+		while (blst != NULL)
 		{
 			n++;
 			blst = blst->next;
