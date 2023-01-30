@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/29 15:21:31 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:52:29 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,6 @@ t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst);
 void		pa(t_ps_list **blst, t_ps_list **alst);
 void		pb(t_ps_list **blst, t_ps_list **alst);
 
+/*		operations_2.c		*/
+void    ra(t_ps_list **alst, int rr);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/29 15:24:12 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:20:29 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	main(int argc, char **argv)
 			sa(alst, 0);
 		if (c == 4)
 			sb(blst, 0);
+		if (c == 5)
+			ra(&alst, 0);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);
