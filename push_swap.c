@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 17:28:28 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:30:06 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,5 @@ int	main(int argc, char **argv)
 		scanf("%d", &c);
 	}
 	ft_freelist(alst, blst, 0);
-	ft_printf("Ready to be sorted!\n");
 	return (0);
 }
