@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	pop_top_a(t_alist **alst)
+void	pop_top_a(t_ps_list **alst)
 {
-	t_alist	*temp;
+	t_ps_list	*temp;
 
 	if (alst == NULL)
 		exit(1);
@@ -26,9 +26,9 @@ void	pop_top_a(t_alist **alst)
 	}
 }
 
-void	pop_top_b(t_blist **blst)
+void	pop_top_b(t_ps_list **blst)
 {
-	t_blist	*temp;
+	t_ps_list	*temp;
 
 	if (blst == NULL)
 		exit(1);
@@ -40,10 +40,10 @@ void	pop_top_b(t_blist **blst)
 	}
 }
 
-void	ft_freelist(t_alist *alst, t_blist *blst, int malloc)
+void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 {
-	t_alist	*temp_a;
-	t_blist	*temp_b;
+	t_ps_list	*temp_a;
+	t_ps_list	*temp_b;
 
 	if (malloc == 1)
 	{
@@ -70,30 +70,30 @@ void	ft_freelist(t_alist *alst, t_blist *blst, int malloc)
 	exit(EXIT_FAILURE);
 }
 
-t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi)
+t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi)
 {
-	t_alist	*new;
-	t_alist	*temp;
+	t_ps_list	*new;
+	t_ps_list	*temp;
 
-	temp = alst;
+	temp = *alst;
 	while (temp != NULL && temp->next != NULL)
 		temp = temp->next;
-	new = (t_alist *)malloc(sizeof(new));
+	new = (t_ps_list *)malloc(sizeof(t_ps_list));
 	if (!new)
 	{
 		free(new);
-		ft_freelist(alst, blst, 0);
+		ft_freelist(*alst, blst, 0);
 	}
 	new->data = atoi;
 	new->next = NULL;
 	if (temp != NULL)
 		temp->next = new;
 	else
-		alst = new;
-	return (alst);
+		*alst = new;
+	return (0);
 }
 
-int	ft_lstsize_2(t_alist *alst, t_blist *blst)
+int	ft_lstsize_2(t_ps_list *alst, t_ps_list *blst)
 {
 	int	n;
 

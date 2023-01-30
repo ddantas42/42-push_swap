@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_alist	*sa(t_alist	*alst, int ss)
+t_ps_list	*sa(t_ps_list	*alst, int ss)
 {
 	int		n_temp;
 
@@ -27,7 +27,7 @@ t_alist	*sa(t_alist	*alst, int ss)
 	return (alst);
 }
 
-t_blist	*sb(t_blist *blst, int ss)
+t_ps_list	*sb(t_ps_list *blst, int ss)
 {
 	int		n_temp;
 
@@ -42,7 +42,7 @@ t_blist	*sb(t_blist *blst, int ss)
 	return (blst);
 }
 
-t_alist	*ss(t_alist *alst, t_blist *blst)
+t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
 {
 	alst = sa(alst, 1);
 	blst = sb(blst, 1);
@@ -51,32 +51,61 @@ t_alist	*ss(t_alist *alst, t_blist *blst)
 }
 
 // de B para A
-void	pa(t_blist **blst, t_alist **alst, int data, int argc)
+void	pa(t_ps_list **blst, t_ps_list **alst)
 {
-	t_alist	*new;
+	t_ps_list	*temp;
 	
-	if (ft_lstsize_2((*alst), 0) == argc)
+	if (*blst == NULL)
 		return ;
-	new = (t_alist *)malloc(sizeof(new));
-	if (!new)
+	if (*alst == NULL)
 	{
-		free(new);
-		ft_freelist((*alst), (*blst), 0);
+		temp = (*blst)->next;
+		(*alst) = (*blst);
+		(*alst)->next = NULL;
+		(*blst) = temp;
 	}
-	new->data = data;
-	new->next = (*alst);
-	(*alst) = new;
-	pop_top_b(blst);
+	else
+	{
+		temp = (*alst);
+		(*alst) = (*blst);
+		(*blst) = (*blst)->next;
+		(*alst)->next = temp;
+	}
+	
 	ft_printf("pa\n");
 }
 
 // de A para B
-void	pb(t_blist **blst, t_alist **alst, int data, int argc)
+void	pb(t_ps_list **blst, t_ps_list **alst)
 {
-	t_blist	*new;
+	t_ps_list	*temp;
+	
+	if (*alst == NULL)
+		return ;
+	if (*blst == NULL)
+	{
+		temp = (*alst)->next;
+		(*blst) = (*alst);
+		(*blst)->next = NULL;
+		(*alst) = temp;
+	}
+	else
+	{
+		temp = (*blst);
+		(*blst) = (*alst);
+		(*alst) = (*alst)->next;
+		(*blst)->next = temp;
+	}
+	ft_printf("pb\n");
+}
+
+/*
+void	pb(t_ps_list **blst, t_ps_list **alst, int data, int argc)
+{
+	t_ps_list	*new;
 	if (ft_lstsize_2(0, (*blst)) == argc)
 		return ;
-	new = (t_blist *)malloc(sizeof(new));
+	new = (t_ps_list *)malloc(sizeof(new));
 	if (!new)
 	{
 		free(new);
@@ -88,3 +117,4 @@ void	pb(t_blist **blst, t_alist **alst, int data, int argc)
 	pop_top_a(alst);
 	ft_printf("pb\n");
 }
+*/

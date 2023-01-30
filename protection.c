@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error)
+void	free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error)
 {
 	if (error && error != 2)
 		ft_printf("Error\n");
@@ -25,7 +25,7 @@ void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error)
 	exit(EXIT_FAILURE);
 }
 
-int	already_sorted(t_alist *lst, int *stack_a, int argc, int n)
+int	already_sorted(t_ps_list *lst, int *stack_a, int argc, int n)
 {
 	n = 0;
 	while (n < argc - 2)
@@ -41,11 +41,11 @@ int	already_sorted(t_alist *lst, int *stack_a, int argc, int n)
 			return (0);
 		}
 	}
-	free_stuff(lst, stack_a, 0, 1);
+	free_stuff(lst, stack_a, 0, 2);
 	return (1);
 }
 
-int	check_n(t_alist *lst, char *str, int *stack_a, int *stack_b)
+int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
 {
 	int				n;
 
@@ -59,28 +59,28 @@ int	check_n(t_alist *lst, char *str, int *stack_a, int *stack_b)
 		while (str[n])
 		{
 			if (ft_isdigit((int)str[n]) == 0)
-				free_stuff(lst, stack_a, stack_b, 1);
+				free_stuff(*lst, stack_a, stack_b, 1);
 			n++;
 		}
 	}
 	n = ft_atoi(str);
 	if (n > 2147483647 || n < -2147483647)
-		free_stuff(lst, stack_a, stack_b, 1);
+		free_stuff(*lst, stack_a, stack_b, 1);
 	ft_add_alst(lst, 0, n);
 	return (n);
 }
 
-int	duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int argc)
+int	duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int argc)
 {
 	int	l;
 	int	n;
 
 	l = 0;
 	n = 0;
-	while (n < argc)
+	while (n < argc - 1)
 	{
 		l = 0;
-		while (stack_b[l])
+		while (l < argc - 1)
 		{
 			if (n == l)
 			{
@@ -96,24 +96,24 @@ int	duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int argc)
 	return (0);
 }
 
-int	*protection(t_alist *lst, int *stack_a, int argc, char **argv)
+int	*protection(t_ps_list **lst, int *stack_a, int argc, char **argv)
 {
 	int	n;
 	int	*stack_b;
 
 	stack_b = (int *)malloc((argc - 1) * sizeof(int));
 	if (!stack_b || argc < 2)
-		free_stuff(lst, stack_a, stack_b, 1);
+		free_stuff(*lst, stack_a, stack_b, 1);
 	n = 0;
 	while (argv[n + 1])
 	{
 		stack_a[n] = check_n(lst, argv[n + 1], stack_a, stack_b);
 		if (argv[n + 1][0] != '0' && stack_a[n] == 0)
-			free_stuff(lst, stack_a, stack_b, 1);
+			free_stuff(*lst, stack_a, stack_b, 1);
 		stack_b[n] = stack_a[n];
 		n++;
 	}
-	duplicate_check(lst, stack_a, stack_b, argc);
-	already_sorted(lst, stack_a, argc, n);
+	duplicate_check(*lst, stack_a, stack_b, argc);
+	already_sorted(*lst, stack_a, argc, n);
 	return (0);
 }

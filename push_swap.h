@@ -16,42 +16,33 @@
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 
-
-typedef struct a_list
+typedef struct ps_list
 {
 	int				data;
-	struct a_list	*next;
-}					t_alist;
-
-typedef struct b_list
-{
-	int				data;
-	struct b_list	*next;
-}					t_blist;
+	struct ps_list	*next;
+}					t_ps_list;
 
 /*		list_functions.c	*/
-void	pop_top_a(t_alist **alst);
-void	pop_top_b(t_blist **blst);
-void	ft_freelist(t_alist *alst, t_blist *blst, int malloc);
-int		ft_lstsize_2(t_alist *alst, t_blist *blst);
-t_alist	*ft_add_alst(t_alist *alst, t_blist *blst, int atoi);
+void		pop_top_a(t_ps_list **alst);
+void		pop_top_b(t_ps_list **blst);
+void		ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc);
+int			ft_lstsize_2(t_ps_list *alst, t_ps_list *blst);
+t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 
 /*		list_utils.c		*/
-t_blist	*ft_add_blst(t_alist *alst, t_blist *blst, int atoi);
 
 /*		protection.c		*/
-void	free_stuff(t_alist *lst, int *stack_a, int *stack_b, int error);
-int		already_sorted(t_alist *lst, int *stack_a, int argc, int n);
-int		check_n(t_alist *lst, char *str, int *stack_a, int *stack_b);
-int		duplicate_check(t_alist *lst, int *stack_a, int *stack_b, int n);
-int		*protection(t_alist *lst, int *stack_a, int argc, char **argv);
+void		free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error);
+int			already_sorted(t_ps_list *lst, int *stack_a, int argc, int n);
+int			check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b);
+int			duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int n);
+int			*protection(t_ps_list **lst, int *stack_a, int argc, char **argv);
 
 /*		operations.c		*/
-t_alist	*sa(t_alist	*alst, int ss);
-t_blist	*sb(t_blist *blst, int ss);
-t_alist	*ss(t_alist *alst, t_blist *blst);
-void	pa(t_blist **blst, t_alist **alst, int data, int argc);
-void	pb(t_blist **blst, t_alist **alst, int data, int argc);
-
+t_ps_list	*sa(t_ps_list	*alst, int ss);
+t_ps_list	*sb(t_ps_list *blst, int ss);
+t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst);
+void		pa(t_ps_list **blst, t_ps_list **alst);
+void		pb(t_ps_list **blst, t_ps_list **alst);
 
 #endif

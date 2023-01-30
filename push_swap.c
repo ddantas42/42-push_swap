@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	print_list_a(t_alist *lst)
+void	print_list_a(t_ps_list *lst)
 {
-	t_alist *temp = lst;
+	t_ps_list *temp = lst;
 	ft_printf("A\n");
 	while (temp)
 	{
@@ -25,9 +25,9 @@ void	print_list_a(t_alist *lst)
 }
 
 
-void	print_list_b(t_blist *lst)
+void	print_list_b(t_ps_list *lst)
 {
-	t_blist *temp = lst;
+	t_ps_list *temp = lst;
 	ft_printf("B\n");
 	while (temp)
 	{
@@ -38,53 +38,27 @@ void	print_list_b(t_blist *lst)
 	ft_printf("_\n\n");
 }
 
-/*void	bye_0_blst(t_blist **blst, t_alist **alst)
-{
-	t_blist	*new;
-
-	new = (t_blist *)malloc(sizeof(t_blist));
-	if (!new)
-	{
-		free(new);
-		ft_freelist((*alst), (*blst), 0);
-	}
-	new->data = 1;
-	new->next = (*blst);
-	(*blst) = new;
-}*/
-
 int	main(int argc, char **argv)
 {
 	int			*stack_a;
-	t_alist		*alst;
-	t_blist		*blst;
+	t_ps_list		*alst;
+	t_ps_list		*blst;
 	
-	alst = (t_alist *)malloc(sizeof(t_alist));
-	if (!alst)
-		ft_freelist(alst, 0, 1);
+	alst = 0;
+	blst = 0;
 	stack_a = (int *)malloc((argc - 1) * sizeof(int));
 	if (!stack_a)
 		free_stuff(alst, stack_a, 0, 1);	
-	protection(alst, stack_a, argc, argv);
-	ft_add_alst(alst, 0, 0);
-	ft_add_blst(alst, blst, 0);
-	pop_top_a(&alst);
-	
-	blst = (t_blist *)malloc(sizeof(t_blist));
-	if (!blst)
-		ft_freelist(alst, blst, 2);
-	
+	protection(&alst, stack_a, argc, argv);
 	print_list_a(alst);
-	int	c;
-	scanf("%d", &c);
-	//bye_0_blst(&blst, &alst);
+	int	c;	scanf("%d", &c);
 	while (c)
 	{
 		ft_printf("argc = %d\n", argc);
-		if (argc - 1 != ft_lstsize_2(alst,0) && c == 1)
-			pa(&blst, &alst, blst->data, argc);
+		if (c == 1)
+			pa(&blst, &alst);
 		if (c == 2)
-			pb(&blst, &alst, alst->data, argc);
+			pb(&blst, &alst);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);
