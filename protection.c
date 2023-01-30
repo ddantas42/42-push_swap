@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/29 15:32:24 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:42:29 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 void	free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error)
 {
 	if (error && error != 2)
+	{
 		ft_printf("Error\n");
+		error = 1;
+	}
 	if (error == 0 || error == 1)
 		free(stack_b);
 	if (stack_a)
 		free(stack_a);
 	if (lst)
 		ft_freelist(lst, 0, 0);
-	exit(EXIT_FAILURE);
+	exit(1);
 }
 
 int	already_sorted(t_ps_list *lst, int *stack_a, int argc, int n)
