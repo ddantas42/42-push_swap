@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 17:30:06 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:31:36 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	int	c;	scanf("%d", &c);
 	while (c)
 	{
-		system("clear"); ft_printf("1  2  3  4  5  6  7  8  9 10 11\npa pb sa sb ss ra rb rr rra rrb rrr\n");
+		system("clear"); ft_printf("1  2  3  4  5  6  7  8   9   10  11\npa pb sa sb ss ra rb rr rra rrb rrr\n");
 		if (c == 1)
 			pa(&blst, &alst);
 		if (c == 2)
