@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-void	pop_top_a(t_ps_list **alst)
-{
-	t_ps_list	*temp;
-
-	if (alst == NULL)
-		exit(1);
-	else
-	{
-		temp = (*alst);
-		(*alst) = (*alst)->next;
-		free(temp);
-	}
-}
-
-void	pop_top_b(t_ps_list **blst)
-{
-	t_ps_list	*temp;
-
-	if (blst == NULL)
-		exit(1);
-	else
-	{
-		temp = (*blst);
-		(*blst) = (*blst)->next;
-		free(temp);
-	}
-}
-
 void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 {
 	t_ps_list	*temp_a;
@@ -91,28 +63,4 @@ t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi)
 	else
 		*alst = new;
 	return (0);
-}
-
-int	ft_lstsize_2(t_ps_list *alst, t_ps_list *blst)
-{
-	int	n;
-
-	n = 0;
-	if (alst != NULL)
-	{
-		while (alst != NULL)
-		{
-			n++;
-			alst = alst->next;
-		}
-	}
-	if (blst != NULL)
-	{
-		while (blst != NULL)
-		{
-			n++;
-			blst = blst->next;
-		}
-	}
-	return (n);
 }

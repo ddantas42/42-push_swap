@@ -54,7 +54,7 @@ t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
 void	pa(t_ps_list **blst, t_ps_list **alst)
 {
 	t_ps_list	*temp;
-	
+
 	if (*blst == NULL)
 		return ;
 	if (*alst == NULL)
@@ -71,7 +71,6 @@ void	pa(t_ps_list **blst, t_ps_list **alst)
 		(*blst) = (*blst)->next;
 		(*alst)->next = temp;
 	}
-	
 	ft_printf("pa\n");
 }
 
@@ -79,7 +78,7 @@ void	pa(t_ps_list **blst, t_ps_list **alst)
 void	pb(t_ps_list **blst, t_ps_list **alst)
 {
 	t_ps_list	*temp;
-	
+
 	if (*alst == NULL)
 		return ;
 	if (*blst == NULL)

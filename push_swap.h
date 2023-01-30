@@ -23,10 +23,7 @@ typedef struct ps_list
 }					t_ps_list;
 
 /*		list_functions.c	*/
-void		pop_top_a(t_ps_list **alst);
-void		pop_top_b(t_ps_list **blst);
 void		ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc);
-int			ft_lstsize_2(t_ps_list *alst, t_ps_list *blst);
 t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 
 /*		list_utils.c		*/

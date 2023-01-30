@@ -59,6 +59,10 @@ int	main(int argc, char **argv)
 			pa(&blst, &alst);
 		if (c == 2)
 			pb(&blst, &alst);
+		if (c == 3)
+			sa(alst, 0);
+		if (c == 4)
+			sb(blst, 0);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);
