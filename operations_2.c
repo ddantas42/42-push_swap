@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 12:32:24 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 16:58:23 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:27:39 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,12 @@ void	rra(t_ps_list **alst, int rrr)
 		return ;
 	if (rrr == 0)
 		ft_printf("rra\n");
-	temp = (*alst)->next;
-	(*alst) = NULL;
+	temp = (*alst);
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	temp->next->next = (*alst);
+	(*alst) = temp->next;
+	temp->next = NULL;	
 }
 
 void	rrb(t_ps_list **blst, int rrr)
@@ -64,4 +68,10 @@ void	rrb(t_ps_list **blst, int rrr)
 		return ;
 	if (rrr == 0)
 		ft_printf("rrb\n");
+	temp = (*blst);
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	temp->next->next = (*blst);
+	(*blst) = temp->next;
+	temp->next = NULL;	
 }

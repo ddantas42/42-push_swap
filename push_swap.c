@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 15:57:33 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:28:28 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ void	rr(t_ps_list **alst, t_ps_list **blst)
 	ft_printf("rr\n");
 }
 
+void	rrr(t_ps_list **alst, t_ps_list **blst)
+{
+	rra(alst, 1);
+	rrb(blst, 1);
+	ft_printf("rrr\n");
+}
+
 int	main(int argc, char **argv)
 {
 	int			*stack_a;
@@ -68,7 +75,7 @@ int	main(int argc, char **argv)
 	int	c;	scanf("%d", &c);
 	while (c)
 	{
-		system("clear"); ft_printf("1  2  3  4  5  6  7  8\npa pb sa sb ss ra rb rr\n");
+		system("clear"); ft_printf("1  2  3  4  5  6  7  8  9 10 11\npa pb sa sb ss ra rb rr rra rrb rrr\n");
 		if (c == 1)
 			pa(&blst, &alst);
 		if (c == 2)
@@ -85,6 +92,12 @@ int	main(int argc, char **argv)
 			rb(&blst, 0);
 		if (c == 8)
 			rr(&alst, &blst);
+		if (c == 9)
+			rra(&alst, 0);
+		if (c == 10)
+			rrb(&blst, 0);
+		if (c == 11)
+			rrr(&alst, &blst);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);
