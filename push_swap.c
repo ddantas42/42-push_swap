@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 14:20:29 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:57:33 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,23 @@ void	print_list_b(t_ps_list *lst)
 	{
 		ft_printf("lst.data = %d\n",temp->data);
 		temp = temp->next;
-		
 	}
 	ft_printf("_\n\n");
+}
+
+t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
+{
+	alst = sa(alst, 1);
+	blst = sb(blst, 1);
+	ft_printf("ss\n");
+	return (0);
+}
+
+void	rr(t_ps_list **alst, t_ps_list **blst)
+{
+	ra(alst, 1);
+	rb(blst, 1);
+	ft_printf("rr\n");
 }
 
 int	main(int argc, char **argv)
@@ -54,7 +68,7 @@ int	main(int argc, char **argv)
 	int	c;	scanf("%d", &c);
 	while (c)
 	{
-		ft_printf("argc = %d\n", argc);
+		system("clear"); ft_printf("1  2  3  4  5  6  7  8\npa pb sa sb ss ra rb rr\n");
 		if (c == 1)
 			pa(&blst, &alst);
 		if (c == 2)
@@ -64,13 +78,17 @@ int	main(int argc, char **argv)
 		if (c == 4)
 			sb(blst, 0);
 		if (c == 5)
+			ss(alst, blst);		
+		if (c == 6)
 			ra(&alst, 0);
+		if (c == 7)
+			rb(&blst, 0);
+		if (c == 8)
+			rr(&alst, &blst);
 		print_list_a(alst);
 		print_list_b(blst);
 		scanf("%d", &c);
 	}
-
-	
 	ft_freelist(alst, blst, 0);
 	ft_printf("Ready to be sorted!\n");
 	return (0);

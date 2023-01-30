@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 07:40:04 by  ddantas-         #+#    #+#             */
-/*   Updated: 2023/01/30 14:55:09 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:56:54 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ t_ps_list	*sb(t_ps_list *blst, int ss)
 	return (blst);
 }
 
-t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
-{
-	alst = sa(alst, 1);
-	blst = sb(blst, 1);
-	ft_printf("ss\n");
-	return (0);
-}
-
-// de B para A
 void	pa(t_ps_list **blst, t_ps_list **alst)
 {
 	t_ps_list	*temp;
@@ -78,7 +69,6 @@ void	pa(t_ps_list **blst, t_ps_list **alst)
 	ft_printf("pa\n");
 }
 
-// de A para B
 void	pb(t_ps_list **blst, t_ps_list **alst)
 {
 	t_ps_list	*temp;
@@ -101,23 +91,3 @@ void	pb(t_ps_list **blst, t_ps_list **alst)
 	}
 	ft_printf("pb\n");
 }
-
-/*
-void	pb(t_ps_list **blst, t_ps_list **alst, int data, int argc)
-{
-	t_ps_list	*new;
-	if (ft_lstsize_2(0, (*blst)) == argc)
-		return ;
-	new = (t_ps_list *)malloc(sizeof(new));
-	if (!new)
-	{
-		free(new);
-		ft_freelist((*alst), (*blst), 0);
-	}
-	new->data = data;
-	new->next = (*blst);
-	(*blst) = new;
-	pop_top_a(alst);
-	ft_printf("pb\n");
-}
-*/
