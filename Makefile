@@ -6,7 +6,7 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 16:13:23 by ddantas-          #+#    #+#              #
-#    Updated: 2023/01/30 12:37:46 by ddantas-         ###   ########.fr        #
+#    Updated: 2023/01/31 18:54:00 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 RM = rm
 
 FILESC = push_swap.c protection.c operations.c \
-		list_functions.c operations_2.c
+		list_functions.c operations_2.c algorithm.c
 
 OBJS = $(FILESC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/29 15:31:18 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:55:34 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 		blst = blst->next;
 		free(temp_b);
 	}
-	exit(EXIT_FAILURE);
+	if (malloc == 3)
+		exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
 
 t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi)
