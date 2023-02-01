@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/31 19:08:46 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:33:50 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
+# include <unistd.h>
+# include <stdint.h>
+# include <stddef.h>
 
 typedef struct ps_list
 {
@@ -23,10 +25,12 @@ typedef struct ps_list
 }					t_ps_list;
 
 /*		algorithm.c		*/
-void		algorithm(t_ps_list **alst, t_ps_list **blst);
+int			both_s(t_ps_list **alst, t_ps_list **blst);
+void		algorithm(t_ps_list *alst, t_ps_list *blst);
 
 /*		list_functions.c	*/
 void		ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc);
+void		ft_freelist_2(t_ps_list *blst, int error);
 t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 
 /*		protection.c		*/
@@ -49,8 +53,14 @@ void		rra(t_ps_list **alst, int rrr);
 void		rrb(t_ps_list **blst, int rrr);
 
 /*		push_swap.c			*/
+int			ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b);
 t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst);
 void		rr(t_ps_list **alst, t_ps_list **blst);
 void		rrr(t_ps_list **alst, t_ps_list **blst);
+
+/*		sorted.c			*/
+void		just_pa(t_ps_list **alst, t_ps_list **blst);
 void		is_it_sorted(t_ps_list **alst, t_ps_list **blst);
+void		is_both_sorted(t_ps_list **alst, t_ps_list **blst);
+
 #endif

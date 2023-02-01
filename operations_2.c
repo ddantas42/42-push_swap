@@ -6,13 +6,13 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 12:32:24 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/30 17:27:39 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:55:21 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(t_ps_list **alst, int rr)
+void	ra(t_ps_list **alst, int rr)
 {
 	t_ps_list	*temp;
 
@@ -28,7 +28,7 @@ void    ra(t_ps_list **alst, int rr)
 	temp->next->next = NULL;
 }
 
-void    rb(t_ps_list **blst, int rr)
+void	rb(t_ps_list **blst, int rr)
 {
 	t_ps_list	*temp;
 
@@ -57,7 +57,7 @@ void	rra(t_ps_list **alst, int rrr)
 		temp = temp->next;
 	temp->next->next = (*alst);
 	(*alst) = temp->next;
-	temp->next = NULL;	
+	temp->next = NULL;
 }
 
 void	rrb(t_ps_list **blst, int rrr)
@@ -73,5 +73,5 @@ void	rrb(t_ps_list **blst, int rrr)
 		temp = temp->next;
 	temp->next->next = (*blst);
 	(*blst) = temp->next;
-	temp->next = NULL;	
+	temp->next = NULL;
 }

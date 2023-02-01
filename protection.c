@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/29 15:32:24 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:46:22 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error)
 {
-	if (error && error != 2)
+	if (error && error != 2 && error != 3)
 		ft_printf("Error\n");
 	if (error == 0 || error == 1)
 		free(stack_b);
 	if (stack_a)
 		free(stack_a);
 	if (lst)
-		ft_freelist(lst, 0, 0);
+		ft_freelist(lst, 0, 3);
 	exit(EXIT_FAILURE);
 }
 
@@ -41,13 +41,13 @@ int	already_sorted(t_ps_list *lst, int *stack_a, int argc, int n)
 			return (0);
 		}
 	}
-	free_stuff(lst, stack_a, 0, 2);
+	free_stuff(lst, stack_a, 0, 3);
 	return (1);
 }
 
 int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
 {
-	int				n;
+	int	n;
 
 	n = 0;
 	if (str)
@@ -58,14 +58,12 @@ int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
 			n++;
 		while (str[n])
 		{
-			if (ft_isdigit((int)str[n]) == 0)
+			if (str[n] < '0' && str[n] > '9')
 				free_stuff(*lst, stack_a, stack_b, 1);
 			n++;
 		}
 	}
-	n = ft_atoi(str);
-	if (n > 2147483647 || n < -2147483647)
-		free_stuff(*lst, stack_a, stack_b, 1);
+	n = ft_atoi(str, lst, stack_a, stack_b);
 	ft_add_alst(lst, 0, n);
 	return (n);
 }
@@ -92,6 +90,7 @@ int	duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int argc)
 		}
 	n++;
 	}
+	free(stack_a);
 	free(stack_b);
 	return (0);
 }
@@ -114,6 +113,5 @@ int	*protection(t_ps_list **lst, int *stack_a, int argc, char **argv)
 		n++;
 	}
 	duplicate_check(*lst, stack_a, stack_b, argc);
-	already_sorted(*lst, stack_a, argc, n);
 	return (0);
 }

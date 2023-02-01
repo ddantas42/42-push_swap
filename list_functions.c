@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:33:54 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/01/31 18:55:34 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:02:50 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 {
 	t_ps_list	*temp_a;
-	t_ps_list	*temp_b;
 
 	if (malloc == 1)
 	{
@@ -28,7 +27,14 @@ void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 		alst = alst->next;
 		free(temp_a);
 	}
-	if (malloc == 2)
+	ft_freelist_2(blst, malloc);
+}
+
+void	ft_freelist_2(t_ps_list *blst, int error)
+{
+	t_ps_list	*temp_b;
+
+	if (error == 2)
 	{
 		free(blst);
 		exit(EXIT_FAILURE);
@@ -39,7 +45,7 @@ void	ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc)
 		blst = blst->next;
 		free(temp_b);
 	}
-	if (malloc == 3)
+	if (error == 3)
 		exit(EXIT_FAILURE);
 	exit(EXIT_SUCCESS);
 }
