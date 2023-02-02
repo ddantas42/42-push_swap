@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:42:28 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/01 16:54:22 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:28:49 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	is_it_sorted(t_ps_list **alst, t_ps_list **blst)
 {
 	t_ps_list	*temp;
 
+	is_both_sorted(alst, blst);
 	temp = (*alst);
 	if (*blst != NULL)
 		return ;
@@ -45,10 +46,12 @@ void	is_both_sorted(t_ps_list **alst, t_ps_list **blst)
 {
 	t_ps_list	*temp;
 
+	if (*blst == NULL)
+		return ;
 	temp = (*alst);
 	while (temp)
 	{
-		if (temp->next == NULL)
+		if (temp == NULL || temp->next == NULL)
 			break ;
 		if (temp->data > temp->next->data)
 			return ;

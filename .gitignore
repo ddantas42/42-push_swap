@@ -4,4 +4,6 @@
 .vscode/
 push_swap
 *.txt
-./visualizer/
+visualizer/*
+visualizer
+

@@ -6,41 +6,48 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/01 16:56:38 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:05:24 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b)
+void	print_list_a(t_ps_list *lst)
 {
-	int	n;
-	int	s;
-	int	c;
+	t_ps_list *temp = lst;
+	ft_printf("A\n");
+	while (temp)
+	{
+		ft_printf("lst.pos = %d\n",temp->pos);
+		temp = temp->next;
+	}
+	ft_printf("_\n\n");
+}
 
-	c = 0;
-	s = 1;
-	n = 0;
-	while (str[n] == ' ' || str[n] == '\f' || str[n] == '\n'
-		|| str[n] == '\r' || str[n] == '\t' || str[n] == '\v')
-		n++;
-	if (str[n] == '-' || str[n] == '+')
+void	get_pos(t_ps_list **alst)
+{
+	t_ps_list	*temp;
+	t_ps_list	*temp_2;
+	int			pos;
+
+	temp = *alst;
+	temp_2 = *alst;
+	pos = 1;
+	while (temp)
 	{
-		if (str[n] == '-')
-			s *= -1;
-		n++;
+		temp_2 = *alst;
+		while (temp_2)
+		{
+			if (temp_2->next == NULL)
+				break ;
+			if (temp->data < temp->next->data)
+				temp->pos = pos++;
+			temp_2 = temp_2->next;
+		}
+		temp_2 = temp->next;
+		temp = temp->next;
 	}
-	while (str[n])
-	{
-		if (str[n] >= 48 && str[n] <= 57)
-			c = (c * 10) + (str[n] - 48);
-		else
-			break ;
-		n++;
-	}
-	if (c > 2147483647 || (c * s) < -2147483648)
-		free_stuff(*lst, stack_a, stack_b, 1);
-	return (c * s);
+	print_list_a(*alst);
 }
 
 t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
@@ -71,16 +78,25 @@ int	main(int argc, char **argv)
 	t_ps_list	*alst;
 	t_ps_list	*blst;
 
+	if (argc == 1)
+		return (0);
 	alst = 0;
 	blst = 0;
 	stack_a = (int *)malloc((argc - 1) * sizeof(int));
 	if (!stack_a)
 		free_stuff(alst, stack_a, 0, 1);
 	protection(&alst, stack_a, argc, argv);
-	if (argc < 11)
-		algorithm(alst, blst);
-	if (argc > 10)
+	is_it_sorted(&alst, &blst);
+
+	//get_pos(&alst);
+
+	if (argc <= 4)
+		algorithm_3(alst, argc);
+	if (argc > 4)
+	{
+		main_algorithm(alst, blst);
 		ft_printf("NOT YET DEVELOPED :(\n");
+	}
 	ft_freelist(alst, blst, 0);
 	return (0);
 }
