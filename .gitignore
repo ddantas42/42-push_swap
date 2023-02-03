@@ -6,4 +6,4 @@ push_swap
 *.txt
 visualizer/*
 visualizer
-
+*.ini

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/02 16:05:24 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:53:04 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,19 @@ void	get_pos(t_ps_list **alst)
 {
 	t_ps_list	*temp;
 	t_ps_list	*temp_2;
-	int			pos;
 
 	temp = *alst;
 	temp_2 = *alst;
-	pos = 1;
 	while (temp)
 	{
+		temp->pos = 1;
 		temp_2 = *alst;
 		while (temp_2)
 		{
-			if (temp_2->next == NULL)
-				break ;
-			if (temp->data < temp->next->data)
-				temp->pos = pos++;
+			if (temp->data > temp_2->data)
+				temp->pos++;
 			temp_2 = temp_2->next;
 		}
-		temp_2 = temp->next;
 		temp = temp->next;
 	}
 	print_list_a(*alst);
@@ -87,15 +83,12 @@ int	main(int argc, char **argv)
 		free_stuff(alst, stack_a, 0, 1);
 	protection(&alst, stack_a, argc, argv);
 	is_it_sorted(&alst, &blst);
-
-	//get_pos(&alst);
-
+	get_pos(&alst);
 	if (argc <= 4)
 		algorithm_3(alst, argc);
-	if (argc > 4)
+	else if (argc > 4)
 	{
 		main_algorithm(alst, blst);
-		ft_printf("NOT YET DEVELOPED :(\n");
 	}
 	ft_freelist(alst, blst, 0);
 	return (0);

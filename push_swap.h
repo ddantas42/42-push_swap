@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/02 15:50:25 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:51:46 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void		ft_freelist_2(t_ps_list *blst, int error);
 t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 
 /*		main_algo.c			*/
-void	main_algorithm(t_ps_list *alst, t_ps_list *blst);
+int			get_lower_pos(t_ps_list *alst, t_ps_list *temp_min);
+void		search_lower(t_ps_list **alst, t_ps_list **blst);
+void		main_algorithm(t_ps_list *alst, t_ps_list *blst);
 
 /*		protection.c		*/
 void		free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error);
