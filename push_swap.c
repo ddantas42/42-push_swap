@@ -6,23 +6,11 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/03 14:53:04 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:57:00 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_list_a(t_ps_list *lst)
-{
-	t_ps_list *temp = lst;
-	ft_printf("A\n");
-	while (temp)
-	{
-		ft_printf("lst.pos = %d\n",temp->pos);
-		temp = temp->next;
-	}
-	ft_printf("_\n\n");
-}
 
 void	get_pos(t_ps_list **alst)
 {
@@ -43,7 +31,6 @@ void	get_pos(t_ps_list **alst)
 		}
 		temp = temp->next;
 	}
-	print_list_a(*alst);
 }
 
 t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst)
@@ -88,7 +75,7 @@ int	main(int argc, char **argv)
 		algorithm_3(alst, argc);
 	else if (argc > 4)
 	{
-		main_algorithm(alst, blst);
+		main_algorithm(alst, blst, argc - 1);
 	}
 	ft_freelist(alst, blst, 0);
 	return (0);
