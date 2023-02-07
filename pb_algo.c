@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:45:58 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 14:46:52 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:24:25 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,14 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 		{
 			pb(blst, alst);
 			min_pos--;
+			if (min_pos == 0)
+				break ;
+			temp = *alst;
+			continue;
 		}
 		ra(alst, 0);
-		temp = temp->next;
+		temp = *alst;
 	}
+	while (div-- > 0)
+		pb(blst, alst);	
 }
