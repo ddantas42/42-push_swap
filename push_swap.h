@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 13:48:05 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:48:45 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,14 @@ t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 /*		main_algo.c			*/
 void		main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize);
 
-/*		pb_algo.c			*/
+/*		pa_algo.c			*/
+void		pa_algo(t_ps_list **alst, t_ps_list **blst, int lstsize);
 
-int			get_lower_pos(t_ps_list *alst);
-int			get_lower_mov(t_ps_list *alst, int div);
-void		pb_algo(t_ps_list **alst, t_ps_list **blst, int divide, int lstsize);
+/*		pb_algo.c			*/
+//int			get_lower_pos(t_ps_list *alst);
+//int			get_lower_mov(t_ps_list *alst, int div);
+void		pb_algo(t_ps_list **alst, t_ps_list **blst,
+				int divide, int lstsize);
 
 /*		protection.c		*/
 void		free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error);
@@ -57,14 +60,15 @@ void		pa(t_ps_list **blst, t_ps_list **alst);
 void		pb(t_ps_list **blst, t_ps_list **alst);
 
 /*		operations_2.c		*/
-void   		ra(t_ps_list **alst, int rr);
-void  		rb(t_ps_list **blst, int rr);
+void		ra(t_ps_list **alst, int rr);
+void		rb(t_ps_list **blst, int rr);
 void		rra(t_ps_list **alst, int rrr);
 void		rrb(t_ps_list **blst, int rrr);
 
 /*		push_swap.utils.c	*/
 int			ft_atoi_while_1(const char *str);
-int			ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b);
+int			ft_atoi(const char *str, t_ps_list **lst,
+				int *stack_a, int *stack_b);
 
 /*		push_swap.c			*/
 t_ps_list	*ss(t_ps_list *alst, t_ps_list *blst);

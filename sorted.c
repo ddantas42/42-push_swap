@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:42:28 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/03 14:28:29 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:46:26 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	is_it_sorted(t_ps_list **alst, t_ps_list **blst)
 	t_ps_list	*temp;
 
 	is_both_sorted(alst, blst);
-
 	temp = (*alst);
 	if (*blst != NULL)
 		return ;
@@ -29,13 +28,12 @@ void	is_it_sorted(t_ps_list **alst, t_ps_list **blst)
 			return ;
 		temp = temp->next;
 	}
-	ft_printf("Sorted! :D\n");
 	ft_freelist(*alst, *blst, 0);
 }
 
-void		just_pa(t_ps_list **alst, t_ps_list **blst)
+void	just_pa(t_ps_list **alst, t_ps_list **blst)
 {
-	t_ps_list *temp;
+	t_ps_list	*temp;
 
 	temp = *blst;
 	while (temp != NULL)
@@ -60,7 +58,6 @@ void	is_both_sorted(t_ps_list **alst, t_ps_list **blst)
 			return ;
 		temp = temp->next;
 	}
-
 	temp = (*blst);
 	while (temp->next)
 	{
