@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 15:48:45 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:36:38 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_ps_list	*ft_add_alst(t_ps_list **alst, t_ps_list *blst, int atoi);
 void		main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize);
 
 /*		pa_algo.c			*/
+void		locate_higher(t_ps_list **blst, int higher_pos);
 void		pa_algo(t_ps_list **alst, t_ps_list **blst, int lstsize);
 
 /*		pb_algo.c			*/

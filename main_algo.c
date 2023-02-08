@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:07:40 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 15:43:49 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/08 11:45:44 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
 {
 	int	divide;
 
-	if (lstsize < 100)
-		divide = 4;
+	if (lstsize < 10)
+		divide = 3;
+	else if (lstsize < 100)
+		divide = 10;
 	else if (lstsize >= 100 && lstsize < 500)
-		divide = lstsize / 10;
+		divide = lstsize / 12;
 	else
-		divide = lstsize / 20;
+		divide = lstsize / 26;
 	pb_algo(&alst, &blst, divide, lstsize);
 	pa_algo(&alst, &blst, lstsize);
 	is_it_sorted(&alst, &blst);

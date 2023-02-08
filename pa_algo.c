@@ -6,16 +6,18 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 15:35:55 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 16:16:01 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:27:55 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	locate_higher(t_ps_list **blst, int higher_pos)
 {
 	int			n;
 	t_ps_list	*temp;
-	
+	int			temp_n;
+
 	temp = *blst;
 	n = 0;
 	while (temp)
@@ -25,15 +27,28 @@ void	locate_higher(t_ps_list **blst, int higher_pos)
 		n++;
 		temp = temp->next;
 	}
+	temp_n = 1;
 	if (n > higher_pos / 2)
 	{
-		while (n--)
-			rb(blst, 0);
+		temp_n = (higher_pos / 2);
+		if (temp_n <= -1)
+			return ;
+		while (temp_n--)
+		{
+			if (temp_n < 0)
+				break ;
+			if ((*blst)->pos == higher_pos)
+				break ;
+			rrb(blst, 0);
+		}
 	}
 	else 
 		while (n--)
-			rrb(blst, 0);
-		
+		{
+			if ((*blst)->pos == higher_pos)
+				break ;
+			rb(blst, 0);
+		}
 }
 
 void	pa_algo(t_ps_list **alst, t_ps_list **blst, int lstsize)
