@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 07:40:04 by  ddantas-         #+#    #+#             */
-/*   Updated: 2023/02/07 15:44:31 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:59:36 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_ps_list	*sa(t_ps_list	*alst, int ss)
 		alst->next->pos = alst->pos;
 		alst->data = n_temp;
 		alst->pos = pos_temp;
-		}
+	}
 	return (alst);
 }
 
