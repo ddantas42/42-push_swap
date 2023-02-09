@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:42:28 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 15:46:26 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:49:26 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	just_pa(t_ps_list **alst, t_ps_list **blst)
 		temp = temp->next;
 		pa(alst, blst);
 	}
+	exit(EXIT_SUCCESS);
 }
 
 void	is_both_sorted(t_ps_list **alst, t_ps_list **blst)

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:45:58 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/08 16:31:24 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:02:39 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,23 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 	int	min_pos;
 
 	min_pos = 1;
-	while ((*alst))
+	while (lstsize > 3)
 	{
 		if ((*alst)->pos >= min_pos && (*alst)->pos <= div)
 		{
+			//ft_printf("min %d => pos >= div %d\n", min_pos, div);
 			if ((*alst)->pos == min_pos)
 				min_pos++;
 			pb(blst, alst);
+			if (lstsize > 5)
+				div++;
 			lstsize--;
-			div++;
 		}
 		if ((*alst) == NULL)
 			return ;
+		if (lstsize <= 3)
+			break ;
 		locate_closer(alst, min_pos, div, lstsize);
+		is_it_sorted(alst, blst);
 	}
 }
