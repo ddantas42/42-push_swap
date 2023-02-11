@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:45:58 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/10 23:43:08 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:05:50 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 Old pb algo End */
 
 // Fast one
-void	locate_closer_below(t_ps_list **alst, int min_pos, int div, int lstsize)
+int	locate_closer_below(t_ps_list **alst, int min_pos, int div)
 {
 	t_ps_list	*temp;
-	int			temp_pos;
 	int			n;
 
 	n = 0;
@@ -47,11 +46,10 @@ void	locate_closer_below(t_ps_list **alst, int min_pos, int div, int lstsize)
 	while (temp)
 	{
 		if (temp->pos >= min_pos && temp->pos <= div)
-			temp_pos == temp->pos;
+			n = 0;
 		n++;
 		temp = temp->next;
 	}
-	n = lstsize - n;
 	return (n);
 }
 
@@ -111,7 +109,7 @@ void passa_metade(t_ps_list **alst, t_ps_list **blst, int menor, int maior)
 	int mandar;
 	int counter;
 	static int n = 0;
-	/*if (menor >= maior)
+	if (menor >= maior)
 	{
 		ra(alst, 0);
 		return ;
@@ -140,8 +138,8 @@ void passa_metade(t_ps_list **alst, t_ps_list **blst, int menor, int maior)
 	while (*blst)
 		pa(blst, alst);
 	passa_metade(alst, blst, menor, media);
-	passa_metade(alst, blst, media + 1, maior);*/
-	/*if (menor < maior)
+	passa_metade(alst, blst, media + 1, maior);
+	if (menor < maior)
 	{
 		media = (maior + menor) / 2;
 		mandar = (maior - menor) / 2;
@@ -175,7 +173,7 @@ void passa_metade(t_ps_list **alst, t_ps_list **blst, int menor, int maior)
 
 void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 {
-	/*int	new_lst;
+	int	new_lst;
 	int	min;
 
 	new_lst = lstsize;
