@@ -6,23 +6,36 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:07:40 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/09 13:54:45 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:12:23 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	print_list_a(t_ps_list *lst)
+t_ps_list	*algorithm_3_pos(t_ps_list *alst, int lstsize)
 {
-	t_ps_list *temp = lst;
-	ft_printf("A\n");
-	while (temp)
+	if (lstsize == 2 || (alst->pos > alst->next->pos
+			&& alst->pos < alst->next->next->pos))
+		alst = sa(alst, 0);
+	else if (alst->pos > alst->next->pos
+		&& alst->next->pos < alst->next->next->pos)
+		ra(&alst, 0);
+	else if (alst->pos < alst->next->pos
+		&& alst->pos < alst->next->next->pos)
 	{
-		ft_printf("lst.data = %d\n",temp->data);
-		temp = temp->next;
+		rra(&alst, 0);
+		alst = sa(alst, 0);
 	}
-	ft_printf("_\n\n");
+	else if (alst->pos < alst->next->pos
+		&& alst->pos > alst->next->next->pos)
+		rra(&alst, 0);
+	else if (alst->pos > alst->next->pos
+		&& alst->next->pos > alst->next->next->pos)
+	{
+		alst = sa(alst, 0);
+		rra(&alst, 0);
+	}
+	return (alst);
 }
 
 void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
@@ -30,7 +43,7 @@ void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
 	int	divide;
 
 	if (lstsize < 10)
-		divide = 2;
+		divide = 1;
 	else if (lstsize < 100)
 		divide = 10;
 	else if (lstsize >= 100 && lstsize < 500)
@@ -38,11 +51,14 @@ void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
 	else
 		divide = lstsize / 24;
 	pb_algo(&alst, &blst, divide, lstsize);
-
-	//ft_printf("lstsize = %d\n", lstsize);
-	print_list_a(alst);
-	exit(1);
-	algorithm_3(alst, 4);
+	if (divide == 1)
+	{
+		alst = algorithm_3_pos(alst, 3);
+		while (blst != NULL)		
+			pa(&blst, &alst);
+		return ;
+	}
 	pa_algo(&alst, &blst, lstsize);
-	is_it_sorted(&alst, &blst);
+	is_it_sorted(&alst, &blst);		
+
 }

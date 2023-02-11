@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:05:12 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/03 12:49:50 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:57:54 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@ int	ft_atoi_while_1(const char *str)
 	return (n);
 }
 
+
+int	ft_atoi_if(const char *str, int *n)
+{
+	int	temp_n;
+
+	temp_n = *n;
+	if ((str[temp_n] == '-' || str[temp_n] == '+'))
+	{
+			*n = ++temp_n;
+			return (-1);
+	}
+	return (1);
+}
+
 int	ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b)
 {
 	int					n;
@@ -30,10 +44,8 @@ int	ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b)
 	unsigned long int	c;
 
 	c = 0;
-	s = 1;
 	n = ft_atoi_while_1(str);
-	if ((str[n] == '-' || str[n] == '+') && str[n++] == '-')
-			s = -1;
+	s = ft_atoi_if(str, &n);
 	while (str[n])
 	{
 		if (str[n] >= 48 && str[n] <= 57

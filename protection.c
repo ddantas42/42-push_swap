@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/01 16:46:22 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:59:05 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
 			|| str[n] == '\r' || str[n] == '\t' || str[n] == '\v'
 			|| str[n] == '+' || str[n] == '-')
 			n++;
-		while (str[n])
+		while (str[n] != '\0')
 		{
-			if (str[n] < '0' && str[n] > '9')
+			if (str[n] < '0' || str[n] > '9')
 				free_stuff(*lst, stack_a, stack_b, 1);
 			n++;
 		}

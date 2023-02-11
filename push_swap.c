@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/07 10:57:00 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:31:41 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ int	main(int argc, char **argv)
 	if (argc <= 4)
 		algorithm_3(alst, argc);
 	else if (argc > 4)
-	{
 		main_algorithm(alst, blst, argc - 1);
-	}
 	ft_freelist(alst, blst, 0);
 	return (0);
 }

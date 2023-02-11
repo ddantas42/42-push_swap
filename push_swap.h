@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/08 16:04:05 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/10 23:23:49 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void		locate_higher(t_ps_list **blst, int higher_pos);
 void		pa_algo(t_ps_list **alst, t_ps_list **blst, int lstsize);
 
 /*		pb_algo.c			*/
-//int			get_lower_pos(t_ps_list *alst);
-//int			get_lower_mov(t_ps_list *alst, int div);
 void		locate_closer(t_ps_list **alst, int min_pos,
 				int div, int lstsize);
 void		pb_algo(t_ps_list **alst, t_ps_list **blst,
@@ -72,6 +70,7 @@ void		rrb(t_ps_list **blst, int rrr);
 
 /*		push_swap.utils.c	*/
 int			ft_atoi_while_1(const char *str);
+int			ft_atoi_if(const char *str, int *n);
 int			ft_atoi(const char *str, t_ps_list **lst,
 				int *stack_a, int *stack_b);
 
