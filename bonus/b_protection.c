@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   protection.c                                       :+:      :+:    :+:   */
+/*   b_protection.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/12 13:58:20 by ddantas-         ###   ########.fr       */
+/*   Created: 2023/02/12 13:55:36 by ddantas-          #+#    #+#             */
+/*   Updated: 2023/02/12 13:56:33 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
-void	free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error)
-{
-	if (error && error != 2 && error != 3)
-		ft_printf("Error\n");
-	if (error == 0 || error == 1)
-		free(stack_b);
-	if (stack_a)
-		free(stack_a);
-	if (lst)
-		ft_freelist(lst, 0, 3);
-	exit(EXIT_FAILURE);
-}
-
-int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
+int	check_n(t_bonus_list **lst, char *str, int *stack_a, int *stack_b)
 {
 	int	n;
 
@@ -48,7 +35,7 @@ int	check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b)
 	return (n);
 }
 
-int	duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int argc)
+int	duplicate_check(t_bonus_list *lst, int *stack_a, int *stack_b, int argc)
 {
 	int	l;
 	int	n;
@@ -75,7 +62,7 @@ int	duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int argc)
 	return (0);
 }
 
-int	*protection(t_ps_list **lst, int *stack_a, int argc, char **argv)
+int	*protection(t_bonus_list **lst, int *stack_a, int argc, char **argv)
 {
 	int	n;
 	int	*stack_b;

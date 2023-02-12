@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/10 23:23:49 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:58:22 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void		pb_algo(t_ps_list **alst, t_ps_list **blst,
 
 /*		protection.c		*/
 void		free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error);
-int			already_sorted(t_ps_list *lst, int *stack_a, int argc, int n);
 int			check_n(t_ps_list **lst, char *str, int *stack_a, int *stack_b);
 int			duplicate_check(t_ps_list *lst, int *stack_a, int *stack_b, int n);
 int			*protection(t_ps_list **lst, int *stack_a, int argc, char **argv);

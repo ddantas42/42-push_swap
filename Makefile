@@ -6,7 +6,7 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 16:13:23 by ddantas-          #+#    #+#              #
-#    Updated: 2023/02/07 15:35:53 by ddantas-         ###   ########.fr        #
+#    Updated: 2023/02/12 16:24:17 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,24 @@ FILESC = push_swap.c protection.c operations.c \
 
 OBJS = $(FILESC:.c=.o)
 
-FT_PRINTF = ./ft_printf/libftprintf.a
+BONUS = checker
+BONUS_FILES = ./bonus/bonus.c ./bonus/b_protection.c ./bonus/b_list_f.c \
+			./bonus/b_atoi.c
+BONUS_OBJS = $(BONUS_FILES:.c=.o)
 
-all: $(NAME)
+FT_PRINTF = ./ft_printf/libftprintf.a
+GET_NEXT_LINE = ./get_next_line/get_next_line.a
+
+all: $(BONUS) $(NAME)
 
 $(NAME): $(FT_PRINTF) $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(FT_PRINTF) 
+
+bonus: $(BONUS)
+
+$(BONUS): $(BONUS_OBJS) $(FT_PRINTF)
+	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJS) $(FT_PRINTF)
+
 
 $(FT_PRINTF):
 	$(MAKE) -C ft_printf
@@ -36,12 +48,14 @@ $(FT_PRINTF):
 
 clean:
 	$(RM) -f $(OBJS)
+	$(RM) -f $(BONUS_OBJS)
 	$(MAKE) -C ft_printf fclean
 	
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(BONUS)
 
 re: fclean all
 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

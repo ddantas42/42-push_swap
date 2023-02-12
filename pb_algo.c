@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:45:58 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/11 15:05:50 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:14:33 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 		pb(blst, alst);	
 }
 Old pb algo End */
-
-// Fast one
-int	locate_closer_below(t_ps_list **alst, int min_pos, int div)
-{
-	t_ps_list	*temp;
-	int			n;
-
-	n = 0;
-	temp = *alst;
-	while (temp)
-	{
-		if (temp->pos >= min_pos && temp->pos <= div)
-			n = 0;
-		n++;
-		temp = temp->next;
-	}
-	return (n);
-}
 
 void	locate_closer(t_ps_list **alst, int min_pos, int div, int lstsize)
 {
