@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:46:27 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/13 18:34:21 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:49:36 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	input_handler(t_bonus_list **alst, t_bonus_list **blst)
 		ft_printf("str = %s\n", str);
 
 
-		ft_printf("zero str = %s\n", str);
 
+		
+		
+		set_zero(str);
 		ft_printf("waiting..\n\n");
-		
-		
 		rd = read(STDIN_FILENO, str, 1);
 
 	}
