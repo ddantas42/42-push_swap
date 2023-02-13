@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:30:40 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/12 14:46:08 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:20:21 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 # define BONUS_H
 
 # include "../ft_printf/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
 # include <unistd.h>
 # include <limits.h>
 
 
 typedef struct bonus_list
-{
-	int				data;
-	int				pos;
+{	
+	int					data;
+	int					pos;
 	struct bonus_list	*next;
 }					t_bonus_list;
 
@@ -45,5 +44,9 @@ int				*protection(t_bonus_list **lst, int *stack_a, int argc, char **argv);
 
 /*			bonus.c			*/
 void			free_stuff(t_bonus_list *lst, int *stack_a, int *stack_b, int error);
+
+/*			handler.c		*/
+int				ft_strsize(char str[]);
+int				input_handler(t_bonus_list **alst, t_bonus_list **blst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:19:16 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/12 16:24:53 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:50:41 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,6 @@ void	free_stuff(t_bonus_list *lst, int *stack_a, int *stack_b, int error)
 	if (lst)
 		ft_freelist(lst, 0, 3);
 	exit(EXIT_FAILURE);
-}
-
-int	ft_strlen(const char *str)
-{
-	int n;
-
-	n = 0;
-	while (str[n] != '\n' || str[n] != '\0')
-		n++;
-	return (n);
-}
-
-int	input_handler(t_bonus_list **alst, t_bonus_list **blst)
-{
-	ssize_t		rd;
-	char		str[4];
-	int			len;
-	
-	rd = read(STDIN_FILENO, str, 1)
-	while(rd > 0)
-	{
-		str[2] = '\0';
-		ft_printf("%s\n");
-		rd = read(STDIN_FILENO, str, 1)
-	}
-	return (0);
 }
 
 int main(int argc, char **argv)

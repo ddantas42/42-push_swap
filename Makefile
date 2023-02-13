@@ -6,7 +6,7 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 16:13:23 by ddantas-          #+#    #+#              #
-#    Updated: 2023/02/12 16:24:17 by ddantas-         ###   ########.fr        #
+#    Updated: 2023/02/13 17:46:48 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS = $(FILESC:.c=.o)
 
 BONUS = checker
 BONUS_FILES = ./bonus/bonus.c ./bonus/b_protection.c ./bonus/b_list_f.c \
-			./bonus/b_atoi.c
+			./bonus/b_atoi.c ./bonus/handler.c
 BONUS_OBJS = $(BONUS_FILES:.c=.o)
 
 FT_PRINTF = ./ft_printf/libftprintf.a
