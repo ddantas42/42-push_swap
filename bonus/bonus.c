@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:19:16 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/13 17:50:41 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:02:52 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_stuff(t_bonus_list *lst, int *stack_a, int *stack_b, int error)
 {
 	if (error && error != 2 && error != 3)
-		ft_printf("Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 	if (error == 0 || error == 1)
 		free(stack_b);
 	if (stack_a)
@@ -23,6 +23,33 @@ void	free_stuff(t_bonus_list *lst, int *stack_a, int *stack_b, int error)
 	if (lst)
 		ft_freelist(lst, 0, 3);
 	exit(EXIT_FAILURE);
+}
+
+void	rrr(t_bonus_list **alst, t_bonus_list **blst)
+{
+	rra(alst);
+	rrb(blst);
+}
+
+void	is_it_sorted(t_bonus_list **alst, t_bonus_list **blst)
+{
+	t_bonus_list	*temp;
+
+	temp = (*alst);
+	if (*blst != NULL)
+		return ;
+	while (temp != NULL)
+	{
+		if (temp->next == NULL)
+			break ;
+		if (temp->data > temp->next->data)
+		{
+			ft_printf("KO\n");
+			return ;
+		}
+		temp = temp->next;
+	}
+	ft_printf("OK\n");
 }
 
 int main(int argc, char **argv)
@@ -39,7 +66,12 @@ int main(int argc, char **argv)
 	if (!stack_a)
 		free_stuff(alst, stack_a, 0, 1);
 	protection(&alst, stack_a, argc, argv);
-	input_handler(&alst, &blst);
+	if (input_handler(&alst, &blst))
+	{
+		ft_printf("KO\n");
+		ft_freelist(alst, blst, 3);
+	}
+	is_it_sorted(&alst, &blst);
 	ft_freelist(alst, blst, 0);
 	return (0);
 }
