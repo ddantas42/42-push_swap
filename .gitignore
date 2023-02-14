@@ -9,3 +9,4 @@ visualizer
 *.ini
 .n*
 checker
+*.out

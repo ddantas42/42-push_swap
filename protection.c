@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 19:23:01 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/12 13:58:20 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:00:00 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_stuff(t_ps_list *lst, int *stack_a, int *stack_b, int error)
 {
 	if (error && error != 2 && error != 3)
-		ft_printf("Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 	if (error == 0 || error == 1)
 		free(stack_b);
 	if (stack_a)

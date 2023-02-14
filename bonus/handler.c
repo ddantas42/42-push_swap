@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:46:27 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 13:18:03 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:52:50 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	arg_handler(int arg, char str[])
 
 	c[0] = '\0';
 	if (arg != READ_MORE)
-		return(arg);
+		return (arg);
 	if (arg == READ_MORE && read(STDIN_FILENO, c, 1) <= 0)
 		return (0);
 	else if (c[0] != '\n')
@@ -64,7 +64,6 @@ int	arg_handler(int arg, char str[])
 	else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r' && c[0] == '\n')
 		return (RRR);
 	return (0);
-	
 }
 
 void	exec_arg(int arg, t_bonus_list **alst, t_bonus_list **blst)
@@ -93,7 +92,6 @@ void	exec_arg(int arg, t_bonus_list **alst, t_bonus_list **blst)
 		rrr(alst, blst);
 }
 
-
 int	input_handler(t_bonus_list **alst, t_bonus_list **blst)
 {
 	ssize_t		rd;
@@ -102,11 +100,11 @@ int	input_handler(t_bonus_list **alst, t_bonus_list **blst)
 
 	set_zero(str);
 	rd = read(STDIN_FILENO, str, 3);
-	while(rd > 0)
+	while (rd > 0)
 	{
 		arg = select_arg(str);
 		if (arg == 0)
-			return(1);
+			return (1);
 		arg = arg_handler(arg, str);
 		if (arg == 0)
 			return (1);

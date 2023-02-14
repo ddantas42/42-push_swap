@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:07:40 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/11 14:54:57 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:57:02 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,10 @@ void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
 	if (divide == 1)
 	{
 		alst = algorithm_3_pos(alst, 3);
-		while (blst != NULL)		
+		while (blst != NULL)
 			pa(&blst, &alst);
 		return ;
 	}
 	pa_algo(&alst, &blst, lstsize);
-	is_it_sorted(&alst, &blst);		
-
+	is_it_sorted(&alst, &blst);
 }
