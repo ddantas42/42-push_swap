@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:45:58 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 13:53:53 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:00:35 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 			lstsize--;
 			div++;
 		}
-		if (lstsize <= 3 && div <= 10)
-			return ;
-		if ((*alst) == NULL)
+		if ((lstsize <= 3 && div <= 10) || (*alst) == NULL)
 			return ;
 		locate_closer(alst, min_pos, div, lstsize);
 		is_it_sorted(alst, blst);

@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:07:40 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 13:57:02 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:36:06 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_ps_list	*algorithm_3_pos(t_ps_list *alst, int lstsize)
 {
 	if (lstsize == 2 || (alst->pos > alst->next->pos
 			&& alst->pos < alst->next->next->pos))
-		alst = sa(alst, 0);
+		sa(alst, 0);
 	else if (alst->pos > alst->next->pos
 		&& alst->next->pos < alst->next->next->pos)
 		ra(&alst, 0);
@@ -24,7 +24,7 @@ t_ps_list	*algorithm_3_pos(t_ps_list *alst, int lstsize)
 		&& alst->pos < alst->next->next->pos)
 	{
 		rra(&alst, 0);
-		alst = sa(alst, 0);
+		sa(alst, 0);
 	}
 	else if (alst->pos < alst->next->pos
 		&& alst->pos > alst->next->next->pos)
@@ -32,7 +32,7 @@ t_ps_list	*algorithm_3_pos(t_ps_list *alst, int lstsize)
 	else if (alst->pos > alst->next->pos
 		&& alst->next->pos > alst->next->next->pos)
 	{
-		alst = sa(alst, 0);
+		sa(alst, 0);
 		rra(&alst, 0);
 	}
 	return (alst);

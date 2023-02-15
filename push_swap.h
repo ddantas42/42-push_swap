@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:19:49 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/12 13:58:22 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:01:23 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct ps_list
 }					t_ps_list;
 
 /*		algorithm.c			*/
-void		algorithm_3(t_ps_list *alst, int argc);
+t_ps_list		*algorithm_3(t_ps_list *alst, int argc);
 
 /*		list_functions.c	*/
 void		ft_freelist(t_ps_list *alst, t_ps_list *blst, int malloc);

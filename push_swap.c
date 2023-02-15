@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:47:35 by ddantas-          #+#    #+#             */
-/*   Updated: 2023/02/14 13:18:55 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:06:11 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	is_it_sorted(&alst, &blst);
 	get_pos(&alst);
 	if (argc <= 4)
-		algorithm_3(alst, argc);
+		alst = algorithm_3(alst, argc);
 	else if (argc > 4)
 		main_algorithm(alst, blst, argc - 1);
 	ft_freelist(alst, blst, 0);
