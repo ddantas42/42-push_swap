@@ -116,4 +116,4 @@ int	input_handler(t_bonus_list **alst, t_bonus_list **blst)
 		rd = read(STDIN_FILENO, str, 3);
 	}
 	return (0);
-}
+} 

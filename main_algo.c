@@ -61,3 +61,4 @@ void	main_algorithm(t_ps_list *alst, t_ps_list *blst, int lstsize)
 	pa_algo(&alst, &blst, lstsize);
 	is_it_sorted(&alst, &blst);
 }
+ 

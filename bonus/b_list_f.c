@@ -72,3 +72,4 @@ t_bonus_list	*ft_add_alst(t_bonus_list **alst, t_bonus_list *blst, int atoi)
 		*alst = new;
 	return (0);
 }
+ 

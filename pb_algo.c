@@ -56,4 +56,4 @@ void	pb_algo(t_ps_list **alst, t_ps_list **blst, int div, int lstsize)
 		locate_closer(alst, min_pos, div, lstsize);
 		is_it_sorted(alst, blst);
 	}
-}
+} 

@@ -63,3 +63,4 @@ int	ft_atoi(const char *str, t_ps_list **lst, int *stack_a, int *stack_b)
 	}
 	return (c * s);
 }
+ 

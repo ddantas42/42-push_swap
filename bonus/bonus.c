@@ -77,4 +77,4 @@ int	main(int argc, char **argv)
 	is_it_sorted(&alst, &blst);
 	ft_freelist(alst, blst, 0);
 	return (0);
-}
+} 

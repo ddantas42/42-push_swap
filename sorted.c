@@ -66,3 +66,4 @@ void	is_both_sorted(t_ps_list **alst, t_ps_list **blst)
 		return ;
 	just_pa(alst, blst);
 }
+ 

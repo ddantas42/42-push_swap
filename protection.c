@@ -95,3 +95,4 @@ int	*protection(t_ps_list **lst, int *stack_a, int argc, char **argv)
 	duplicate_check(*lst, stack_a, stack_b, argc);
 	return (0);
 }
+ 

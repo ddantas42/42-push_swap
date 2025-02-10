@@ -100,3 +100,4 @@ void	pb(t_bonus_list **blst, t_bonus_list **alst)
 		(*blst)->next = temp;
 	}
 }
+ 
